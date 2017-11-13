@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
 	<property name="APP_NAME" value="stettl" />
-	<property name="LOG_PATH" value="/Users/zhoujg77/log" />
+	<property name="LOG_PATH" value="C:\apache-tomcat-7.0.68\logs\we" />
 	<property name="ENCODER_PATTERN"
 		value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n" />
 	<contextName>${APP_NAME}</contextName>
@@ -58,24 +58,6 @@
 			<expression>retrun message.contains("str");</expression> <onMath>ACCEPT</onMath> 
 			<onMismatch>DENY</onMismatch> </evaluator> </filter> -->
 	</appender>
-
-	<!-- <appender name="servlet" -->
-	<!-- class="ch.qos.logback.core.rolling.RollingFileAppender"> -->
-	<!-- <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> -->
-	<!-- <fileNamePattern>${LOG_PATH}/servlet.%d{yyyy-MM-dd}.log -->
-	<!-- </fileNamePattern> -->
-	<!-- <maxHistory>30</maxHistory> -->
-	<!-- </rollingPolicy> -->
-	<!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> -->
-	<!-- <pattern>${ENCODER_PATTERN}</pattern> -->
-	<!-- <charset>UTF-8</charset> -->
-	<!-- </encoder> -->
-	<!-- <filter class="ch.qos.logback.classic.filter.LevelFilter"> -->
-	<!-- <level>ERROR</level>错误日志不输出到该文件 -->
-	<!-- <onMatch>DENY</onMatch> -->
-	<!-- <onMismatch>ACCEPT</onMismatch> -->
-	<!-- </filter> -->
-	<!-- </appender> -->
 
 
 	
