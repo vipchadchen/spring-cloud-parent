@@ -26,15 +26,34 @@ public class StzbTest {
         insert();
 //        String s = HttpsClientSSL.postUrl("http://stzb.163.com/herolist/100002.html","");
 //        getElement(s,1L);
+
+        /*CREATE TABLE `stzb`.`Untitled`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `desc` varchar(2555) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `cost` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `bz` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `jl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `mn` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `gj` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `gc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `fy` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `sd` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `zf` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `cj` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ref1` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ref2` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+        PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 100003 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;*/
     }
 
     public static  void insert(){
-        Connection conn = JdbcUtils.getConnection("jdbc:oracle:thin:@10.60.17.163:1521:dfft1","dfft","dfft","oracle");
+        Connection conn = JdbcUtils.getConnection("jdbc:mysql://127.0.0.1:3306/stzb?useUnicode=true&characterEncoding=utf8","stzb","stzb",JdbcUtils.MYSQL);
         try {
             conn.setAutoCommit(false);
             PreparedStatement updateSales1 = null;
-            updateSales1 = conn.prepareStatement("insert into st_test VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,'','','','')");
-            for (int i = 100169; i < 100209; i++) {
+            updateSales1 = conn.prepareStatement("insert into st_wj VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,'','')");
+            for (int i = 100136; i < 100200; i++) {
                 System.out.println("数据拉取:"+i);
                 String s = HttpsClientSSL.postUrl("http://stzb.163.com/herolist/"+i+".html","");
                 if(!StringUtils.isEmpty(s)){

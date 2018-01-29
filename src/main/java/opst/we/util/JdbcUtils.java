@@ -2,23 +2,53 @@ package opst.we.util;
 
 import java.sql.*;
 
-public final class JdbcUtils {  
-    
-    /** 
+public final class JdbcUtils {
+
+    public static String MYSQL ="mysql";
+    public static String ORACLE ="mysql";
+
+    private static Connection connection = null;
+    private static String url = "jdbc:mysql://127.0.0.1:3306/stzb?useUnicode=true&characterEncoding=utf8";
+    private static String user = "stzb";
+    private static String psw = "stzb";
+
+    static {
+        if(connection==null){
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                if(connection==null){
+                    connection = DriverManager.getConnection(url, user, psw);
+                }
+            }  catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }  catch (SQLException e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+
+    public static Connection getConnection() {
+        return connection;
+    }
+
+    /**
      * 获取数据库的连接 
      * @return conn 
      * @throws SQLException
      */  
     public static Connection getConnection(String url, String user, String psw, String dbType) {
             try {  
-            	if("mysql".equals(dbType.toLowerCase())){
+            	if(MYSQL.equals(dbType.toLowerCase())){
             		Class.forName("com.mysql.jdbc.Driver");
-            	}else if("oracle".equals(dbType.toLowerCase())){
+            	}else if(ORACLE.equals(dbType.toLowerCase())){
             		Class.forName("oracle.jdbc.driver.OracleDriver");
             	}
-            	
-               Connection conn = DriverManager.getConnection(url, user, psw);
-               return conn; 
+            	if(connection==null){
+                    connection = DriverManager.getConnection(url, user, psw);
+            	}
+               return connection;
                 
             }  catch (ClassNotFoundException e) {
 				e.printStackTrace();

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
 	<property name="APP_NAME" value="stettl" />
-	<property name="LOG_PATH" value="C:\apache-tomcat-7.0.68\logs\we" />
+	<property name="LOG_PATH" value="C:\\server\\apache-tomcat-8.5.27\\logs\\we" />
 	<property name="ENCODER_PATTERN"
 		value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n" />
 	<contextName>${APP_NAME}</contextName>
