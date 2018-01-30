@@ -16,7 +16,7 @@ import java.sql.*;
  * @date: create in 2018/1/29 15:27
  * @modified:
  */
-@WebServlet(name = "stzb", urlPatterns = "/stzb")
+@WebServlet(name = "test", urlPatterns = "/test")
 public class StzbServlet extends HttpServlet {
     /**
      * @param req
@@ -54,7 +54,7 @@ public class StzbServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        resp.sendRedirect("index.html");
+        resp.sendRedirect("index.htm");
     }
 
     @Override

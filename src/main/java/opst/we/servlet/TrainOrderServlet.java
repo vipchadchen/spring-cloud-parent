@@ -47,7 +47,7 @@ public class TrainOrderServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        req.getRequestDispatcher("index.html").forward(req,resp);
+        req.getRequestDispatcher("index.htm").forward(req,resp);
     }
 
     @Override

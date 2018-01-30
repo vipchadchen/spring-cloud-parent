@@ -2,6 +2,11 @@ package opst.we.util;
 
 import java.sql.*;
 
+/**
+ * @author: chgj
+ * @description:
+ * @date: 2018/1/30 10:15
+ */
 public final class JdbcUtils {
 
     public static String MYSQL ="mysql";

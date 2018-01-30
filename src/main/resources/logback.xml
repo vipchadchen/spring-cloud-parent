@@ -60,8 +60,6 @@
 	</appender>
 
 
-	
-
 	 <!-- 异步输出 -->  
      <appender name ="ASYNC" class= "ch.qos.logback.classic.AsyncAppender">  
             <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->  
