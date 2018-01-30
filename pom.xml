@@ -53,6 +53,12 @@
         </dependency>
         <!-- freemarker/velocity end -->
 
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+
         <!-- mybatis -->
         <dependency>
             <groupId>commons-dbcp</groupId>
