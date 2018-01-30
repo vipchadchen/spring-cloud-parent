@@ -15,7 +15,7 @@
 
 	<plugins>
 		<plugin interceptor="opst.we.util.MybatisPageInterceptor">
-			<property name="dialect" value="oracle" />
+			<property name="dialect" value="mysql" />
 			<property name="pageSqlId" value="Page" />
 		</plugin>
 	</plugins>

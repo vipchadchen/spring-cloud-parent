@@ -1,6 +1,8 @@
 package opst.we.control;
 
+import opst.we.service.StzbService;
 import opst.we.util.BaseController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/stzb/")
 public class StzbCl extends BaseController {
+    @Autowired
+    private StzbService service;
     @Override
     public String getView(String view) {
         return view;
@@ -22,6 +26,7 @@ public class StzbCl extends BaseController {
     @RequestMapping("list")
     public String show(ModelMap map) {
         map.put("page","hello,world!");
+        service.listWj();
         return getView("index");
     }
 }
