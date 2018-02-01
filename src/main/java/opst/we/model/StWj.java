@@ -5,7 +5,7 @@ public class StWj {
 
     private String name;
 
-    private String desct;
+    private String descst;
 
     private String cost;
 
@@ -47,12 +47,12 @@ public class StWj {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getDesct() {
-        return desct;
+    public String getDescst() {
+        return descst;
     }
 
-    public void setDesct(String desct) {
-        this.desct = desct == null ? null : desct.trim();
+    public void setDescst(String descst) {
+        this.descst = descst == null ? null : descst.trim();
     }
 
     public String getCost() {

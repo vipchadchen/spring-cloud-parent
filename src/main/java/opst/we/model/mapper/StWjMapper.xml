@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="opst.we.model.mapper.StWjMapper" >
+  <resultMap id="BaseResultMap" type="opst.we.model.StWj" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="descst" property="descst" jdbcType="VARCHAR" />
+    <result column="cost" property="cost" jdbcType="VARCHAR" />
+    <result column="bz" property="bz" jdbcType="VARCHAR" />
+    <result column="jl" property="jl" jdbcType="VARCHAR" />
+    <result column="mn" property="mn" jdbcType="VARCHAR" />
+    <result column="gj" property="gj" jdbcType="VARCHAR" />
+    <result column="gc" property="gc" jdbcType="VARCHAR" />
+    <result column="fy" property="fy" jdbcType="VARCHAR" />
+    <result column="sd" property="sd" jdbcType="VARCHAR" />
+    <result column="zf" property="zf" jdbcType="VARCHAR" />
+    <result column="cj" property="cj" jdbcType="VARCHAR" />
+    <result column="ref1" property="ref1" jdbcType="VARCHAR" />
+    <result column="ref2" property="ref2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, name, descst, cost, bz, jl, mn, gj, gc, fy, sd, zf, cj, ref1, ref2
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="opst.we.model.StWjExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from st_wj
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from st_wj
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from st_wj
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="opst.we.model.StWjExample" >
+    delete from st_wj
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="opst.we.model.StWj" >
+    insert into st_wj (id, name, descst, 
+      cost, bz, jl, mn, 
+      gj, gc, fy, sd, 
+      zf, cj, ref1, ref2
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{descst,jdbcType=VARCHAR}, 
+      #{cost,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, #{jl,jdbcType=VARCHAR}, #{mn,jdbcType=VARCHAR}, 
+      #{gj,jdbcType=VARCHAR}, #{gc,jdbcType=VARCHAR}, #{fy,jdbcType=VARCHAR}, #{sd,jdbcType=VARCHAR}, 
+      #{zf,jdbcType=VARCHAR}, #{cj,jdbcType=VARCHAR}, #{ref1,jdbcType=VARCHAR}, #{ref2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="opst.we.model.StWj" >
+    insert into st_wj
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="descst != null" >
+        descst,
+      </if>
+      <if test="cost != null" >
+        cost,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="jl != null" >
+        jl,
+      </if>
+      <if test="mn != null" >
+        mn,
+      </if>
+      <if test="gj != null" >
+        gj,
+      </if>
+      <if test="gc != null" >
+        gc,
+      </if>
+      <if test="fy != null" >
+        fy,
+      </if>
+      <if test="sd != null" >
+        sd,
+      </if>
+      <if test="zf != null" >
+        zf,
+      </if>
+      <if test="cj != null" >
+        cj,
+      </if>
+      <if test="ref1 != null" >
+        ref1,
+      </if>
+      <if test="ref2 != null" >
+        ref2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="descst != null" >
+        #{descst,jdbcType=VARCHAR},
+      </if>
+      <if test="cost != null" >
+        #{cost,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="jl != null" >
+        #{jl,jdbcType=VARCHAR},
+      </if>
+      <if test="mn != null" >
+        #{mn,jdbcType=VARCHAR},
+      </if>
+      <if test="gj != null" >
+        #{gj,jdbcType=VARCHAR},
+      </if>
+      <if test="gc != null" >
+        #{gc,jdbcType=VARCHAR},
+      </if>
+      <if test="fy != null" >
+        #{fy,jdbcType=VARCHAR},
+      </if>
+      <if test="sd != null" >
+        #{sd,jdbcType=VARCHAR},
+      </if>
+      <if test="zf != null" >
+        #{zf,jdbcType=VARCHAR},
+      </if>
+      <if test="cj != null" >
+        #{cj,jdbcType=VARCHAR},
+      </if>
+      <if test="ref1 != null" >
+        #{ref1,jdbcType=VARCHAR},
+      </if>
+      <if test="ref2 != null" >
+        #{ref2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="opst.we.model.StWjExample" resultType="java.lang.Integer" >
+    select count(*) from st_wj
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update st_wj
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.descst != null" >
+        descst = #{record.descst,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cost != null" >
+        cost = #{record.cost,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz != null" >
+        bz = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jl != null" >
+        jl = #{record.jl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mn != null" >
+        mn = #{record.mn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gj != null" >
+        gj = #{record.gj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gc != null" >
+        gc = #{record.gc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fy != null" >
+        fy = #{record.fy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sd != null" >
+        sd = #{record.sd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zf != null" >
+        zf = #{record.zf,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cj != null" >
+        cj = #{record.cj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ref1 != null" >
+        ref1 = #{record.ref1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ref2 != null" >
+        ref2 = #{record.ref2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update st_wj
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      descst = #{record.descst,jdbcType=VARCHAR},
+      cost = #{record.cost,jdbcType=VARCHAR},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      jl = #{record.jl,jdbcType=VARCHAR},
+      mn = #{record.mn,jdbcType=VARCHAR},
+      gj = #{record.gj,jdbcType=VARCHAR},
+      gc = #{record.gc,jdbcType=VARCHAR},
+      fy = #{record.fy,jdbcType=VARCHAR},
+      sd = #{record.sd,jdbcType=VARCHAR},
+      zf = #{record.zf,jdbcType=VARCHAR},
+      cj = #{record.cj,jdbcType=VARCHAR},
+      ref1 = #{record.ref1,jdbcType=VARCHAR},
+      ref2 = #{record.ref2,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="opst.we.model.StWj" >
+    update st_wj
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="descst != null" >
+        descst = #{descst,jdbcType=VARCHAR},
+      </if>
+      <if test="cost != null" >
+        cost = #{cost,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="jl != null" >
+        jl = #{jl,jdbcType=VARCHAR},
+      </if>
+      <if test="mn != null" >
+        mn = #{mn,jdbcType=VARCHAR},
+      </if>
+      <if test="gj != null" >
+        gj = #{gj,jdbcType=VARCHAR},
+      </if>
+      <if test="gc != null" >
+        gc = #{gc,jdbcType=VARCHAR},
+      </if>
+      <if test="fy != null" >
+        fy = #{fy,jdbcType=VARCHAR},
+      </if>
+      <if test="sd != null" >
+        sd = #{sd,jdbcType=VARCHAR},
+      </if>
+      <if test="zf != null" >
+        zf = #{zf,jdbcType=VARCHAR},
+      </if>
+      <if test="cj != null" >
+        cj = #{cj,jdbcType=VARCHAR},
+      </if>
+      <if test="ref1 != null" >
+        ref1 = #{ref1,jdbcType=VARCHAR},
+      </if>
+      <if test="ref2 != null" >
+        ref2 = #{ref2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="opst.we.model.StWj" >
+    update st_wj
+    set name = #{name,jdbcType=VARCHAR},
+      descst = #{descst,jdbcType=VARCHAR},
+      cost = #{cost,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR},
+      jl = #{jl,jdbcType=VARCHAR},
+      mn = #{mn,jdbcType=VARCHAR},
+      gj = #{gj,jdbcType=VARCHAR},
+      gc = #{gc,jdbcType=VARCHAR},
+      fy = #{fy,jdbcType=VARCHAR},
+      sd = #{sd,jdbcType=VARCHAR},
+      zf = #{zf,jdbcType=VARCHAR},
+      cj = #{cj,jdbcType=VARCHAR},
+      ref1 = #{ref1,jdbcType=VARCHAR},
+      ref2 = #{ref2,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

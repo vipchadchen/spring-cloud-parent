@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @modified:
  */
 @Controller
-@RequestMapping("/stzb/")
-public class StzbCl extends BaseController {
+public class IndexCl extends BaseController {
     @Autowired
     private StzbService service;
     @Override
@@ -23,10 +22,8 @@ public class StzbCl extends BaseController {
         return view;
     }
 
-
-    @RequestMapping("list")
+    @RequestMapping("/")
     public String show(ModelMap map) {
-        map.put("page",service.listWj());
         return getView("index");
     }
 }
