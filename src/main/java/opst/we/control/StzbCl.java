@@ -24,9 +24,10 @@ public class StzbCl extends BaseController {
     }
 
 
-    @RequestMapping("list")
+    @RequestMapping("update")
     public String show(ModelMap map) {
-        map.put("page",service.listWj());
+
+        service.updateHero();
         return getView("index");
     }
 }

@@ -104,6 +104,44 @@
         </a>
     </div>
 
+    <div class="container">
+        <h2>武将信息</h2>
+        <table class="table table-condensed table-bordered table-hover table-striped">
+            <thead>
+            <tr>
+                <th width="7%">武将</th>
+                <th width="5%">攻击</th>
+                <th width="5%">cost</th>
+                <th width="5%">谋略</th>
+                <th width="5%">攻城</th>
+                <th width="5%">防御</th>
+                <th width="5%">速度</th>
+                <th width="30%">战法</th>
+                <th width="30%">拆技</th>
+            </tr>
+            </thead>
+            <tbody>
+            <#if page?? >
+            <#list page as item>
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.gj}</td>
+                <td>${item.cost}</td>
+                <td>${item.mn}</td>
+                <td>${item.gc}</td>
+                <td>${item.fy}</td>
+                <td>${item.sd}</td>
+                <td>${item.zf!'---'}</td>
+                <td>${item.cj!'---'}</td>
+            </tr>
+            </#list>
+        </#if>
+        </tbody>
+        </table>
+
+    </div>
+
+
     <div class="page-header">
         <h1>Tables</h1>
     </div>

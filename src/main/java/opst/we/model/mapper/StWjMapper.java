@@ -30,4 +30,6 @@ public interface StWjMapper {
     int updateByPrimaryKeySelective(StWj record);
 
     int updateByPrimaryKey(StWj record);
+
+    Integer selectWxMaxId();
 }

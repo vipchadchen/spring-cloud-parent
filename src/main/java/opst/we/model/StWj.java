@@ -1,31 +1,35 @@
 package opst.we.model;
 
+import java.util.Date;
+
 public class StWj {
     private Integer id;
 
     private String name;
 
-    private String descst;
+    private String xj;
 
-    private String cost;
+    private Long cost;
 
     private String bz;
 
-    private String jl;
+    private Long jl;
 
-    private String mn;
+    private Long mn;
 
-    private String gj;
+    private Long gj;
 
-    private String gc;
+    private Long gc;
 
-    private String fy;
+    private Long fy;
 
-    private String sd;
+    private Long sd;
 
     private String zf;
 
     private String cj;
+
+    private Date createdate;
 
     private String ref1;
 
@@ -47,20 +51,20 @@ public class StWj {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getDescst() {
-        return descst;
+    public String getXj() {
+        return xj;
     }
 
-    public void setDescst(String descst) {
-        this.descst = descst == null ? null : descst.trim();
+    public void setXj(String xj) {
+        this.xj = xj == null ? null : xj.trim();
     }
 
-    public String getCost() {
+    public Long getCost() {
         return cost;
     }
 
-    public void setCost(String cost) {
-        this.cost = cost == null ? null : cost.trim();
+    public void setCost(Long cost) {
+        this.cost = cost;
     }
 
     public String getBz() {
@@ -71,52 +75,52 @@ public class StWj {
         this.bz = bz == null ? null : bz.trim();
     }
 
-    public String getJl() {
+    public Long getJl() {
         return jl;
     }
 
-    public void setJl(String jl) {
-        this.jl = jl == null ? null : jl.trim();
+    public void setJl(Long jl) {
+        this.jl = jl;
     }
 
-    public String getMn() {
+    public Long getMn() {
         return mn;
     }
 
-    public void setMn(String mn) {
-        this.mn = mn == null ? null : mn.trim();
+    public void setMn(Long mn) {
+        this.mn = mn;
     }
 
-    public String getGj() {
+    public Long getGj() {
         return gj;
     }
 
-    public void setGj(String gj) {
-        this.gj = gj == null ? null : gj.trim();
+    public void setGj(Long gj) {
+        this.gj = gj;
     }
 
-    public String getGc() {
+    public Long getGc() {
         return gc;
     }
 
-    public void setGc(String gc) {
-        this.gc = gc == null ? null : gc.trim();
+    public void setGc(Long gc) {
+        this.gc = gc;
     }
 
-    public String getFy() {
+    public Long getFy() {
         return fy;
     }
 
-    public void setFy(String fy) {
-        this.fy = fy == null ? null : fy.trim();
+    public void setFy(Long fy) {
+        this.fy = fy;
     }
 
-    public String getSd() {
+    public Long getSd() {
         return sd;
     }
 
-    public void setSd(String sd) {
-        this.sd = sd == null ? null : sd.trim();
+    public void setSd(Long sd) {
+        this.sd = sd;
     }
 
     public String getZf() {
@@ -133,6 +137,14 @@ public class StWj {
 
     public void setCj(String cj) {
         this.cj = cj == null ? null : cj.trim();
+    }
+
+    public Date getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
     }
 
     public String getRef1() {

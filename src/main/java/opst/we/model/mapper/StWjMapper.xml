@@ -4,17 +4,18 @@
   <resultMap id="BaseResultMap" type="opst.we.model.StWj" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="descst" property="descst" jdbcType="VARCHAR" />
-    <result column="cost" property="cost" jdbcType="VARCHAR" />
+    <result column="xj" property="xj" jdbcType="VARCHAR" />
+    <result column="cost" property="cost" jdbcType="DECIMAL" />
     <result column="bz" property="bz" jdbcType="VARCHAR" />
-    <result column="jl" property="jl" jdbcType="VARCHAR" />
-    <result column="mn" property="mn" jdbcType="VARCHAR" />
-    <result column="gj" property="gj" jdbcType="VARCHAR" />
-    <result column="gc" property="gc" jdbcType="VARCHAR" />
-    <result column="fy" property="fy" jdbcType="VARCHAR" />
-    <result column="sd" property="sd" jdbcType="VARCHAR" />
+    <result column="jl" property="jl" jdbcType="DECIMAL" />
+    <result column="mn" property="mn" jdbcType="DECIMAL" />
+    <result column="gj" property="gj" jdbcType="DECIMAL" />
+    <result column="gc" property="gc" jdbcType="DECIMAL" />
+    <result column="fy" property="fy" jdbcType="DECIMAL" />
+    <result column="sd" property="sd" jdbcType="DECIMAL" />
     <result column="zf" property="zf" jdbcType="VARCHAR" />
     <result column="cj" property="cj" jdbcType="VARCHAR" />
+    <result column="createdate" property="createdate" jdbcType="TIMESTAMP" />
     <result column="ref1" property="ref1" jdbcType="VARCHAR" />
     <result column="ref2" property="ref2" jdbcType="VARCHAR" />
   </resultMap>
@@ -77,7 +78,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, descst, cost, bz, jl, mn, gj, gc, fy, sd, zf, cj, ref1, ref2
+    id, name, xj, cost, bz, jl, mn, gj, gc, fy, sd, zf, cj, createdate, ref1, ref2
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="opst.we.model.StWjExample" >
     select
@@ -110,16 +111,16 @@
     </if>
   </delete>
   <insert id="insert" parameterType="opst.we.model.StWj" >
-    insert into st_wj (id, name, descst, 
+    insert into st_wj (id, name, xj, 
       cost, bz, jl, mn, 
       gj, gc, fy, sd, 
-      zf, cj, ref1, ref2
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{descst,jdbcType=VARCHAR}, 
-      #{cost,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, #{jl,jdbcType=VARCHAR}, #{mn,jdbcType=VARCHAR}, 
-      #{gj,jdbcType=VARCHAR}, #{gc,jdbcType=VARCHAR}, #{fy,jdbcType=VARCHAR}, #{sd,jdbcType=VARCHAR}, 
-      #{zf,jdbcType=VARCHAR}, #{cj,jdbcType=VARCHAR}, #{ref1,jdbcType=VARCHAR}, #{ref2,jdbcType=VARCHAR}
-      )
+      zf, cj, createdate, 
+      ref1, ref2)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{xj,jdbcType=VARCHAR}, 
+      #{cost,jdbcType=DECIMAL}, #{bz,jdbcType=VARCHAR}, #{jl,jdbcType=DECIMAL}, #{mn,jdbcType=DECIMAL}, 
+      #{gj,jdbcType=DECIMAL}, #{gc,jdbcType=DECIMAL}, #{fy,jdbcType=DECIMAL}, #{sd,jdbcType=DECIMAL}, 
+      #{zf,jdbcType=VARCHAR}, #{cj,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{ref1,jdbcType=VARCHAR}, #{ref2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="opst.we.model.StWj" >
     insert into st_wj
@@ -130,8 +131,8 @@
       <if test="name != null" >
         name,
       </if>
-      <if test="descst != null" >
-        descst,
+      <if test="xj != null" >
+        xj,
       </if>
       <if test="cost != null" >
         cost,
@@ -163,6 +164,9 @@
       <if test="cj != null" >
         cj,
       </if>
+      <if test="createdate != null" >
+        createdate,
+      </if>
       <if test="ref1 != null" >
         ref1,
       </if>
@@ -177,38 +181,41 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="descst != null" >
-        #{descst,jdbcType=VARCHAR},
+      <if test="xj != null" >
+        #{xj,jdbcType=VARCHAR},
       </if>
       <if test="cost != null" >
-        #{cost,jdbcType=VARCHAR},
+        #{cost,jdbcType=DECIMAL},
       </if>
       <if test="bz != null" >
         #{bz,jdbcType=VARCHAR},
       </if>
       <if test="jl != null" >
-        #{jl,jdbcType=VARCHAR},
+        #{jl,jdbcType=DECIMAL},
       </if>
       <if test="mn != null" >
-        #{mn,jdbcType=VARCHAR},
+        #{mn,jdbcType=DECIMAL},
       </if>
       <if test="gj != null" >
-        #{gj,jdbcType=VARCHAR},
+        #{gj,jdbcType=DECIMAL},
       </if>
       <if test="gc != null" >
-        #{gc,jdbcType=VARCHAR},
+        #{gc,jdbcType=DECIMAL},
       </if>
       <if test="fy != null" >
-        #{fy,jdbcType=VARCHAR},
+        #{fy,jdbcType=DECIMAL},
       </if>
       <if test="sd != null" >
-        #{sd,jdbcType=VARCHAR},
+        #{sd,jdbcType=DECIMAL},
       </if>
       <if test="zf != null" >
         #{zf,jdbcType=VARCHAR},
       </if>
       <if test="cj != null" >
         #{cj,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="ref1 != null" >
         #{ref1,jdbcType=VARCHAR},
@@ -233,38 +240,41 @@
       <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.descst != null" >
-        descst = #{record.descst,jdbcType=VARCHAR},
+      <if test="record.xj != null" >
+        xj = #{record.xj,jdbcType=VARCHAR},
       </if>
       <if test="record.cost != null" >
-        cost = #{record.cost,jdbcType=VARCHAR},
+        cost = #{record.cost,jdbcType=DECIMAL},
       </if>
       <if test="record.bz != null" >
         bz = #{record.bz,jdbcType=VARCHAR},
       </if>
       <if test="record.jl != null" >
-        jl = #{record.jl,jdbcType=VARCHAR},
+        jl = #{record.jl,jdbcType=DECIMAL},
       </if>
       <if test="record.mn != null" >
-        mn = #{record.mn,jdbcType=VARCHAR},
+        mn = #{record.mn,jdbcType=DECIMAL},
       </if>
       <if test="record.gj != null" >
-        gj = #{record.gj,jdbcType=VARCHAR},
+        gj = #{record.gj,jdbcType=DECIMAL},
       </if>
       <if test="record.gc != null" >
-        gc = #{record.gc,jdbcType=VARCHAR},
+        gc = #{record.gc,jdbcType=DECIMAL},
       </if>
       <if test="record.fy != null" >
-        fy = #{record.fy,jdbcType=VARCHAR},
+        fy = #{record.fy,jdbcType=DECIMAL},
       </if>
       <if test="record.sd != null" >
-        sd = #{record.sd,jdbcType=VARCHAR},
+        sd = #{record.sd,jdbcType=DECIMAL},
       </if>
       <if test="record.zf != null" >
         zf = #{record.zf,jdbcType=VARCHAR},
       </if>
       <if test="record.cj != null" >
         cj = #{record.cj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdate != null" >
+        createdate = #{record.createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.ref1 != null" >
         ref1 = #{record.ref1,jdbcType=VARCHAR},
@@ -281,17 +291,18 @@
     update st_wj
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
-      descst = #{record.descst,jdbcType=VARCHAR},
-      cost = #{record.cost,jdbcType=VARCHAR},
+      xj = #{record.xj,jdbcType=VARCHAR},
+      cost = #{record.cost,jdbcType=DECIMAL},
       bz = #{record.bz,jdbcType=VARCHAR},
-      jl = #{record.jl,jdbcType=VARCHAR},
-      mn = #{record.mn,jdbcType=VARCHAR},
-      gj = #{record.gj,jdbcType=VARCHAR},
-      gc = #{record.gc,jdbcType=VARCHAR},
-      fy = #{record.fy,jdbcType=VARCHAR},
-      sd = #{record.sd,jdbcType=VARCHAR},
+      jl = #{record.jl,jdbcType=DECIMAL},
+      mn = #{record.mn,jdbcType=DECIMAL},
+      gj = #{record.gj,jdbcType=DECIMAL},
+      gc = #{record.gc,jdbcType=DECIMAL},
+      fy = #{record.fy,jdbcType=DECIMAL},
+      sd = #{record.sd,jdbcType=DECIMAL},
       zf = #{record.zf,jdbcType=VARCHAR},
       cj = #{record.cj,jdbcType=VARCHAR},
+      createdate = #{record.createdate,jdbcType=TIMESTAMP},
       ref1 = #{record.ref1,jdbcType=VARCHAR},
       ref2 = #{record.ref2,jdbcType=VARCHAR}
     <if test="_parameter != null" >
@@ -304,38 +315,41 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="descst != null" >
-        descst = #{descst,jdbcType=VARCHAR},
+      <if test="xj != null" >
+        xj = #{xj,jdbcType=VARCHAR},
       </if>
       <if test="cost != null" >
-        cost = #{cost,jdbcType=VARCHAR},
+        cost = #{cost,jdbcType=DECIMAL},
       </if>
       <if test="bz != null" >
         bz = #{bz,jdbcType=VARCHAR},
       </if>
       <if test="jl != null" >
-        jl = #{jl,jdbcType=VARCHAR},
+        jl = #{jl,jdbcType=DECIMAL},
       </if>
       <if test="mn != null" >
-        mn = #{mn,jdbcType=VARCHAR},
+        mn = #{mn,jdbcType=DECIMAL},
       </if>
       <if test="gj != null" >
-        gj = #{gj,jdbcType=VARCHAR},
+        gj = #{gj,jdbcType=DECIMAL},
       </if>
       <if test="gc != null" >
-        gc = #{gc,jdbcType=VARCHAR},
+        gc = #{gc,jdbcType=DECIMAL},
       </if>
       <if test="fy != null" >
-        fy = #{fy,jdbcType=VARCHAR},
+        fy = #{fy,jdbcType=DECIMAL},
       </if>
       <if test="sd != null" >
-        sd = #{sd,jdbcType=VARCHAR},
+        sd = #{sd,jdbcType=DECIMAL},
       </if>
       <if test="zf != null" >
         zf = #{zf,jdbcType=VARCHAR},
       </if>
       <if test="cj != null" >
         cj = #{cj,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        createdate = #{createdate,jdbcType=TIMESTAMP},
       </if>
       <if test="ref1 != null" >
         ref1 = #{ref1,jdbcType=VARCHAR},
@@ -349,19 +363,23 @@
   <update id="updateByPrimaryKey" parameterType="opst.we.model.StWj" >
     update st_wj
     set name = #{name,jdbcType=VARCHAR},
-      descst = #{descst,jdbcType=VARCHAR},
-      cost = #{cost,jdbcType=VARCHAR},
+      xj = #{xj,jdbcType=VARCHAR},
+      cost = #{cost,jdbcType=DECIMAL},
       bz = #{bz,jdbcType=VARCHAR},
-      jl = #{jl,jdbcType=VARCHAR},
-      mn = #{mn,jdbcType=VARCHAR},
-      gj = #{gj,jdbcType=VARCHAR},
-      gc = #{gc,jdbcType=VARCHAR},
-      fy = #{fy,jdbcType=VARCHAR},
-      sd = #{sd,jdbcType=VARCHAR},
+      jl = #{jl,jdbcType=DECIMAL},
+      mn = #{mn,jdbcType=DECIMAL},
+      gj = #{gj,jdbcType=DECIMAL},
+      gc = #{gc,jdbcType=DECIMAL},
+      fy = #{fy,jdbcType=DECIMAL},
+      sd = #{sd,jdbcType=DECIMAL},
       zf = #{zf,jdbcType=VARCHAR},
       cj = #{cj,jdbcType=VARCHAR},
+      createdate = #{createdate,jdbcType=TIMESTAMP},
       ref1 = #{ref1,jdbcType=VARCHAR},
       ref2 = #{ref2,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectWxMaxId" resultType="java.lang.Integer">
+    SELECT  MAX(ID)  FROM ST_WJ
+  </select>
 </mapper>
