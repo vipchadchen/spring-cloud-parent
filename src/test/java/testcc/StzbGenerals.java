@@ -20,6 +20,7 @@ public class StzbGenerals {
     private String sd;
     private String zf;
     private String cj;
+    private String xj;
 
     public Long getId() {
         return id;
@@ -123,5 +124,13 @@ public class StzbGenerals {
 
     public String getCj() {
         return cj;
+    }
+
+    public String getXj() {
+        return xj;
+    }
+
+    public void setXj(String xj) {
+        this.xj = xj;
     }
 }

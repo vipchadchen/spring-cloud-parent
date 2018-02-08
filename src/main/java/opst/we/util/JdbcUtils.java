@@ -13,7 +13,7 @@ public final class JdbcUtils {
     public static String ORACLE ="mysql";
 
     private static Connection connection = null;
-    private static String url = "jdbc:mysql://stzb:3306/stzb?useUnicode=true&characterEncoding=utf8";
+    private static String url = "jdbc:mysql://127.0.0.1:3306/stzb?useUnicode=true&characterEncoding=utf8";
     private static String user = "stzb";
     private static String psw = "stzb";
 

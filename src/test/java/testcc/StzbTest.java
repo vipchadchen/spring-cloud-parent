@@ -23,11 +23,11 @@ import java.util.regex.Pattern;
 public class StzbTest {
     static Pattern pattern = Pattern.compile("[^0-9]");
     public static void main(String[] args) {
-        insert();
-//        String s = HttpsClientSSL.postUrl("http://stzb.163.com/herolist/100002.html","");
-//        getElement(s,1L);
+//        insert();
+        String s = HttpsClientSSL.postUrl("http://stzb.163.com/herolist/100001.html","");
+        System.out.println(s);
+                getElement(s,1L);
 
-        /**/
     }
 
     public static  void insert(){
@@ -36,14 +36,17 @@ public class StzbTest {
             conn.setAutoCommit(false);
             PreparedStatement updateSales1 = null;
             updateSales1 = conn.prepareStatement("insert into st_wj VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,'','')");
-            for (int i = 100136; i < 100200; i++) {
+            for (int i = 100076; i < 100107; i++) {
                 System.out.println("数据拉取:"+i);
                 String s = HttpsClientSSL.postUrl("http://stzb.163.com/herolist/"+i+".html","");
                 if(!StringUtils.isEmpty(s)){
+                    if("timeout".equals(s)){
+                        break;
+                    }
                     StzbGenerals stzbGenerals = getElement(s,Long.valueOf(i));
                     updateSales1.setLong(1, stzbGenerals.getId());
                     updateSales1.setString(2, stzbGenerals.getName());
-                    updateSales1.setString(3, stzbGenerals.getDesc());
+                    updateSales1.setString(3, stzbGenerals.getXj());
 
                     updateSales1.setString(4, stzbGenerals.getCost());
                     updateSales1.setString(5, stzbGenerals.getBz());
@@ -81,8 +84,16 @@ public class StzbTest {
         st.setId(id);
         Document doc = Jsoup.parse(s, "UTF-8");
         //武将名称
-        String name = doc.select("h1").first().text();
+        String name = doc.select("h1").get(1).text();
         st.setName(name);
+        String xjs = doc.select("span.star").first().select("i").attr("class");
+        String [] xj = xjs.split("-");
+        if(xj.length<2){
+            xjs = "5";
+        }else {
+            xjs = xj[1];
+        }
+        System.out.println(xjs);
         //武将描述
         String desc = doc.select("p.desc").first().text();
         st.setDesc(desc);

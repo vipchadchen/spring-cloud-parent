@@ -54,7 +54,7 @@ public class StzbServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        resp.sendRedirect("index.htm");
+        resp.sendRedirect("index1.htm");
     }
 
     @Override

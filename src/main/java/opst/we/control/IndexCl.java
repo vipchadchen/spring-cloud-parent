@@ -24,6 +24,7 @@ public class IndexCl extends BaseController {
 
     @RequestMapping("/")
     public String show(ModelMap map) {
+        map.put("page",service.listWj());
         return getView("index");
     }
 }

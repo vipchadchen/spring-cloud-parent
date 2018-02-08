@@ -4,6 +4,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ConnectionPoolTimeoutException;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
 import org.apache.http.entity.StringEntity;
@@ -38,8 +39,8 @@ public class HttpsClientSSL {
 
     private static void init() {
         // 配置超时时间（连接服务端超时10秒，请求数据返回超时10秒）
-        requestConfig = RequestConfig.custom().setConnectTimeout(1000 * 10).setSocketTimeout(1000 * 10)
-                .setConnectionRequestTimeout(1000 * 10).build();
+        requestConfig = RequestConfig.custom().setConnectTimeout(200 * 10).setSocketTimeout(200 * 10)
+                .setConnectionRequestTimeout(200 * 10).build();
         SSLContext sslcontext = null;
         try {
             // Trust own CA and all self-signed certs
@@ -98,7 +99,9 @@ public class HttpsClientSSL {
                 }
             }
             return responseText;
-        } catch (IOException e) {
+        } catch (ConnectionPoolTimeoutException e){
+            return "timeout";
+        }catch (IOException e) {
             logger.error("IO异常", e);
             e.printStackTrace();
         } catch (Exception e) {
