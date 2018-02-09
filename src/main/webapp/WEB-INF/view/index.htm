@@ -16,7 +16,7 @@
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
-                <a class="text-muted" href="#"><img src="${images}/logo.ico" style="height: 35px;"
+                <a class="text-muted" href="${ctx}/"><img src="${images}/logo.ico" style="height: 35px;"
                                                     alt="Cinque Terre"></a>
             </div>
             <div class="col-4 text-center">
@@ -30,7 +30,7 @@
 
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="#">shuaitu</a>
+            <a class="p-2 text-muted" href="${ctx}/">shuaitu</a>
             <a class="p-2 text-muted" href="#">dnf</a>
             <a class="p-2 text-muted" href="#">ticket</a>
             <a class="p-2 text-muted" href="#">log</a>
@@ -44,7 +44,7 @@
 
     <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
         <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic">这是一次尝试</h1>
+            <h1 class="display-4 font-italic">这是都城</h1>
             <p class="lead my-3">去年今日此门中，人面桃花相映红
                 <br/>人面不知何处去，桃花依旧笑春风</p>
             <!--<p class="lead mb-0"><a href="#" class="text-white font-weight-bold">继续</a></p>-->
@@ -90,6 +90,9 @@
         <div class="col-md-8 blog-main">
             <h3 class="pb-3 mb-4 font-italic border-bottom">
                 武将信息
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    打开模态框
+                </button>
             </h3>
 
             <div class="blog-post">
@@ -111,20 +114,20 @@
                     </thead>
                     <tbody>
                     <#if page?? >
-                    <#list page as item>
-                    <tr>
-                        <td>${item.name}</td>
-                        <td>${item.gj}</td>
-                        <td>${item.gj}</td>
-                        <td>${item.cost}</td>
-                        <td>${item.mn}</td>
-                        <td>${item.gc}</td>
-                        <td>${item.fy}</td>
-                        <td>${item.sd}</td>
-                    </tr>
-                    </#list>
-                </#if>
-                </tbody>
+                        <#list page.rows as item>
+                            <tr>
+                                <td>${item.name}</td>
+                                <td>${item.xj}</td>
+                                <td>${item.gj}</td>
+                                <td>${item.cost?string('#.##')}</td>
+                                <td>${item.mn}</td>
+                                <td>${item.gc}</td>
+                                <td>${item.fy}</td>
+                                <td>${item.sd}</td>
+                            </tr>
+                        </#list>
+                    </#if>
+                    </tbody>
                 </table>
             </div><!-- /.blog-post -->
 
@@ -144,7 +147,7 @@
             <div class="p-3">
                 <h4 class="font-italic">挑我喜欢</h4>
                 <ol class="list-unstyled mb-0">
-                    <li><a href="${ctx}/stzb/update">数据更新</a></li>
+                    <li><a id="wjupdate" href="javascript:;">数据更新</a></li>
                     <li><a href="#">攻击o1</a></li>
                     <li><a href="#">谋略No1</a></li>
                     <li><a href="#">攻城No1</a></li>
@@ -156,12 +159,12 @@
             </div>
 
             <!--<div class="p-3">-->
-                <!--<h4 class="font-italic">Elsewhere</h4>-->
-                <!--<ol class="list-unstyled">-->
-                    <!--<li><a href="#">GitHub</a></li>-->
-                    <!--<li><a href="#">Twitter</a></li>-->
-                    <!--<li><a href="#">Facebook</a></li>-->
-                <!--</ol>-->
+            <!--<h4 class="font-italic">Elsewhere</h4>-->
+            <!--<ol class="list-unstyled">-->
+            <!--<li><a href="#">GitHub</a></li>-->
+            <!--<li><a href="#">Twitter</a></li>-->
+            <!--<li><a href="#">Facebook</a></li>-->
+            <!--</ol>-->
             <!--</div>-->
         </aside>
         <!-- /.blog-sidebar -->
@@ -169,6 +172,31 @@
     </div><!-- /.row -->
 
 </main><!-- /.container -->
+
+<!-- 模态框 -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">模态框头部</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+                模态框内容..
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <footer class="blog-footer">
     <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.
@@ -180,8 +208,10 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="${js}/stzb.js"></script>
+<script type="application/javascript">var PATH = "${ctx}"</script>
 </body>
 </html>

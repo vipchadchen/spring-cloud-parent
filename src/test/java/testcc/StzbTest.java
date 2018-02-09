@@ -161,23 +161,23 @@ public class StzbTest {
 }
 
 /*
-
-    CREATE TABLE `stzb`.`Untitled`  (
+ CREATE TABLE `stzb`.`st_wj`  (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-        `xj` varchar(2222) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-        `cost` decimal(10, 0) NULL DEFAULT NULL,
+        `xj` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+        `cost` decimal(10, 2) NULL DEFAULT NULL,
         `bz` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-        `jl` decimal(10, 0) NULL DEFAULT NULL,
-        `mn` decimal(10, 0) NULL DEFAULT NULL,
-        `gj` decimal(10, 0) NULL DEFAULT NULL,
-        `gc` decimal(10, 0) NULL DEFAULT NULL,
-        `fy` decimal(10, 0) NULL DEFAULT NULL,
-        `sd` decimal(10, 0) NULL DEFAULT NULL,
+        `jl` decimal(10, 2) NULL DEFAULT NULL,
+        `mn` decimal(10, 2) NULL DEFAULT NULL,
+        `gj` decimal(10, 2) NULL DEFAULT NULL,
+        `gc` decimal(10, 2) NULL DEFAULT NULL,
+        `fy` decimal(10, 2) NULL DEFAULT NULL,
+        `sd` decimal(10, 2) NULL DEFAULT NULL,
         `zf` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
         `cj` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
         `createdate` datetime(0) NULL DEFAULT NULL,
         `ref1` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
         `ref2` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
         PRIMARY KEY (`id`) USING BTREE
-        ) ENGINE = InnoDB AUTO_INCREMENT = 100200 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;*/
+        ) ENGINE = InnoDB AUTO_INCREMENT = 100200 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+   */

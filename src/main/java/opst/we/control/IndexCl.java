@@ -23,7 +23,11 @@ public class IndexCl extends BaseController {
     }
 
     @RequestMapping("/")
-    public String show(ModelMap map) {
+    public String show(ModelMap map,String pages,String row) {
+//        pages = "1";
+//        row = "10";
+//        Page page =Page.getPage(pages, row);
+//        map.put("page",service.listWjByPage(page));
         map.put("page",service.listWj());
         return getView("index");
     }

@@ -2,6 +2,7 @@ package opst.we.model.mapper;
 
 import opst.we.model.StWj;
 import opst.we.model.StWjExample;
+import opst.we.util.Page;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -32,4 +33,6 @@ public interface StWjMapper {
     int updateByPrimaryKey(StWj record);
 
     Integer selectWxMaxId();
+
+    List listWjByPage(Page page);
 }

@@ -7,6 +7,16 @@ package opst.we;
  * @modified:
  */
 public class Constants {
+
+    //公用返回JOSN成功
+    public static final String RESULT_JSON_0 = "0";
+    //公用返回JOSN失败
+    public static final String RESULT_JSON_1 = "1";
+
+    public final static class Stzb {
+
+    }
+
     /**
      * 返回字段
      */

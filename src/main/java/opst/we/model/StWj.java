@@ -1,5 +1,6 @@
 package opst.we.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class StWj {
@@ -9,21 +10,21 @@ public class StWj {
 
     private String xj;
 
-    private Long cost;
+    private BigDecimal cost;
 
     private String bz;
 
-    private Long jl;
+    private BigDecimal jl;
 
-    private Long mn;
+    private BigDecimal mn;
 
-    private Long gj;
+    private BigDecimal gj;
 
-    private Long gc;
+    private BigDecimal gc;
 
-    private Long fy;
+    private BigDecimal fy;
 
-    private Long sd;
+    private BigDecimal sd;
 
     private String zf;
 
@@ -59,11 +60,11 @@ public class StWj {
         this.xj = xj == null ? null : xj.trim();
     }
 
-    public Long getCost() {
+    public BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(Long cost) {
+    public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
 
@@ -75,51 +76,51 @@ public class StWj {
         this.bz = bz == null ? null : bz.trim();
     }
 
-    public Long getJl() {
+    public BigDecimal getJl() {
         return jl;
     }
 
-    public void setJl(Long jl) {
+    public void setJl(BigDecimal jl) {
         this.jl = jl;
     }
 
-    public Long getMn() {
+    public BigDecimal getMn() {
         return mn;
     }
 
-    public void setMn(Long mn) {
+    public void setMn(BigDecimal mn) {
         this.mn = mn;
     }
 
-    public Long getGj() {
+    public BigDecimal getGj() {
         return gj;
     }
 
-    public void setGj(Long gj) {
+    public void setGj(BigDecimal gj) {
         this.gj = gj;
     }
 
-    public Long getGc() {
+    public BigDecimal getGc() {
         return gc;
     }
 
-    public void setGc(Long gc) {
+    public void setGc(BigDecimal gc) {
         this.gc = gc;
     }
 
-    public Long getFy() {
+    public BigDecimal getFy() {
         return fy;
     }
 
-    public void setFy(Long fy) {
+    public void setFy(BigDecimal fy) {
         this.fy = fy;
     }
 
-    public Long getSd() {
+    public BigDecimal getSd() {
         return sd;
     }
 
-    public void setSd(Long sd) {
+    public void setSd(BigDecimal sd) {
         this.sd = sd;
     }
 

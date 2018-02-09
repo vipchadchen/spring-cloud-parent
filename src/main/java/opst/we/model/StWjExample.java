@@ -1,5 +1,6 @@
 package opst.we.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -315,52 +316,52 @@ public class StWjExample {
             return (Criteria) this;
         }
 
-        public Criteria andCostEqualTo(Long value) {
+        public Criteria andCostEqualTo(BigDecimal value) {
             addCriterion("cost =", value, "cost");
             return (Criteria) this;
         }
 
-        public Criteria andCostNotEqualTo(Long value) {
+        public Criteria andCostNotEqualTo(BigDecimal value) {
             addCriterion("cost <>", value, "cost");
             return (Criteria) this;
         }
 
-        public Criteria andCostGreaterThan(Long value) {
+        public Criteria andCostGreaterThan(BigDecimal value) {
             addCriterion("cost >", value, "cost");
             return (Criteria) this;
         }
 
-        public Criteria andCostGreaterThanOrEqualTo(Long value) {
+        public Criteria andCostGreaterThanOrEqualTo(BigDecimal value) {
             addCriterion("cost >=", value, "cost");
             return (Criteria) this;
         }
 
-        public Criteria andCostLessThan(Long value) {
+        public Criteria andCostLessThan(BigDecimal value) {
             addCriterion("cost <", value, "cost");
             return (Criteria) this;
         }
 
-        public Criteria andCostLessThanOrEqualTo(Long value) {
+        public Criteria andCostLessThanOrEqualTo(BigDecimal value) {
             addCriterion("cost <=", value, "cost");
             return (Criteria) this;
         }
 
-        public Criteria andCostIn(List<Long> values) {
+        public Criteria andCostIn(List<BigDecimal> values) {
             addCriterion("cost in", values, "cost");
             return (Criteria) this;
         }
 
-        public Criteria andCostNotIn(List<Long> values) {
+        public Criteria andCostNotIn(List<BigDecimal> values) {
             addCriterion("cost not in", values, "cost");
             return (Criteria) this;
         }
 
-        public Criteria andCostBetween(Long value1, Long value2) {
+        public Criteria andCostBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("cost between", value1, value2, "cost");
             return (Criteria) this;
         }
 
-        public Criteria andCostNotBetween(Long value1, Long value2) {
+        public Criteria andCostNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("cost not between", value1, value2, "cost");
             return (Criteria) this;
         }
@@ -445,52 +446,52 @@ public class StWjExample {
             return (Criteria) this;
         }
 
-        public Criteria andJlEqualTo(Long value) {
+        public Criteria andJlEqualTo(BigDecimal value) {
             addCriterion("jl =", value, "jl");
             return (Criteria) this;
         }
 
-        public Criteria andJlNotEqualTo(Long value) {
+        public Criteria andJlNotEqualTo(BigDecimal value) {
             addCriterion("jl <>", value, "jl");
             return (Criteria) this;
         }
 
-        public Criteria andJlGreaterThan(Long value) {
+        public Criteria andJlGreaterThan(BigDecimal value) {
             addCriterion("jl >", value, "jl");
             return (Criteria) this;
         }
 
-        public Criteria andJlGreaterThanOrEqualTo(Long value) {
+        public Criteria andJlGreaterThanOrEqualTo(BigDecimal value) {
             addCriterion("jl >=", value, "jl");
             return (Criteria) this;
         }
 
-        public Criteria andJlLessThan(Long value) {
+        public Criteria andJlLessThan(BigDecimal value) {
             addCriterion("jl <", value, "jl");
             return (Criteria) this;
         }
 
-        public Criteria andJlLessThanOrEqualTo(Long value) {
+        public Criteria andJlLessThanOrEqualTo(BigDecimal value) {
             addCriterion("jl <=", value, "jl");
             return (Criteria) this;
         }
 
-        public Criteria andJlIn(List<Long> values) {
+        public Criteria andJlIn(List<BigDecimal> values) {
             addCriterion("jl in", values, "jl");
             return (Criteria) this;
         }
 
-        public Criteria andJlNotIn(List<Long> values) {
+        public Criteria andJlNotIn(List<BigDecimal> values) {
             addCriterion("jl not in", values, "jl");
             return (Criteria) this;
         }
 
-        public Criteria andJlBetween(Long value1, Long value2) {
+        public Criteria andJlBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("jl between", value1, value2, "jl");
             return (Criteria) this;
         }
 
-        public Criteria andJlNotBetween(Long value1, Long value2) {
+        public Criteria andJlNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("jl not between", value1, value2, "jl");
             return (Criteria) this;
         }
@@ -505,52 +506,52 @@ public class StWjExample {
             return (Criteria) this;
         }
 
-        public Criteria andMnEqualTo(Long value) {
+        public Criteria andMnEqualTo(BigDecimal value) {
             addCriterion("mn =", value, "mn");
             return (Criteria) this;
         }
 
-        public Criteria andMnNotEqualTo(Long value) {
+        public Criteria andMnNotEqualTo(BigDecimal value) {
             addCriterion("mn <>", value, "mn");
             return (Criteria) this;
         }
 
-        public Criteria andMnGreaterThan(Long value) {
+        public Criteria andMnGreaterThan(BigDecimal value) {
             addCriterion("mn >", value, "mn");
             return (Criteria) this;
         }
 
-        public Criteria andMnGreaterThanOrEqualTo(Long value) {
+        public Criteria andMnGreaterThanOrEqualTo(BigDecimal value) {
             addCriterion("mn >=", value, "mn");
             return (Criteria) this;
         }
 
-        public Criteria andMnLessThan(Long value) {
+        public Criteria andMnLessThan(BigDecimal value) {
             addCriterion("mn <", value, "mn");
             return (Criteria) this;
         }
 
-        public Criteria andMnLessThanOrEqualTo(Long value) {
+        public Criteria andMnLessThanOrEqualTo(BigDecimal value) {
             addCriterion("mn <=", value, "mn");
             return (Criteria) this;
         }
 
-        public Criteria andMnIn(List<Long> values) {
+        public Criteria andMnIn(List<BigDecimal> values) {
             addCriterion("mn in", values, "mn");
             return (Criteria) this;
         }
 
-        public Criteria andMnNotIn(List<Long> values) {
+        public Criteria andMnNotIn(List<BigDecimal> values) {
             addCriterion("mn not in", values, "mn");
             return (Criteria) this;
         }
 
-        public Criteria andMnBetween(Long value1, Long value2) {
+        public Criteria andMnBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("mn between", value1, value2, "mn");
             return (Criteria) this;
         }
 
-        public Criteria andMnNotBetween(Long value1, Long value2) {
+        public Criteria andMnNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("mn not between", value1, value2, "mn");
             return (Criteria) this;
         }
@@ -565,52 +566,52 @@ public class StWjExample {
             return (Criteria) this;
         }
 
-        public Criteria andGjEqualTo(Long value) {
+        public Criteria andGjEqualTo(BigDecimal value) {
             addCriterion("gj =", value, "gj");
             return (Criteria) this;
         }
 
-        public Criteria andGjNotEqualTo(Long value) {
+        public Criteria andGjNotEqualTo(BigDecimal value) {
             addCriterion("gj <>", value, "gj");
             return (Criteria) this;
         }
 
-        public Criteria andGjGreaterThan(Long value) {
+        public Criteria andGjGreaterThan(BigDecimal value) {
             addCriterion("gj >", value, "gj");
             return (Criteria) this;
         }
 
-        public Criteria andGjGreaterThanOrEqualTo(Long value) {
+        public Criteria andGjGreaterThanOrEqualTo(BigDecimal value) {
             addCriterion("gj >=", value, "gj");
             return (Criteria) this;
         }
 
-        public Criteria andGjLessThan(Long value) {
+        public Criteria andGjLessThan(BigDecimal value) {
             addCriterion("gj <", value, "gj");
             return (Criteria) this;
         }
 
-        public Criteria andGjLessThanOrEqualTo(Long value) {
+        public Criteria andGjLessThanOrEqualTo(BigDecimal value) {
             addCriterion("gj <=", value, "gj");
             return (Criteria) this;
         }
 
-        public Criteria andGjIn(List<Long> values) {
+        public Criteria andGjIn(List<BigDecimal> values) {
             addCriterion("gj in", values, "gj");
             return (Criteria) this;
         }
 
-        public Criteria andGjNotIn(List<Long> values) {
+        public Criteria andGjNotIn(List<BigDecimal> values) {
             addCriterion("gj not in", values, "gj");
             return (Criteria) this;
         }
 
-        public Criteria andGjBetween(Long value1, Long value2) {
+        public Criteria andGjBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("gj between", value1, value2, "gj");
             return (Criteria) this;
         }
 
-        public Criteria andGjNotBetween(Long value1, Long value2) {
+        public Criteria andGjNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("gj not between", value1, value2, "gj");
             return (Criteria) this;
         }
@@ -625,52 +626,52 @@ public class StWjExample {
             return (Criteria) this;
         }
 
-        public Criteria andGcEqualTo(Long value) {
+        public Criteria andGcEqualTo(BigDecimal value) {
             addCriterion("gc =", value, "gc");
             return (Criteria) this;
         }
 
-        public Criteria andGcNotEqualTo(Long value) {
+        public Criteria andGcNotEqualTo(BigDecimal value) {
             addCriterion("gc <>", value, "gc");
             return (Criteria) this;
         }
 
-        public Criteria andGcGreaterThan(Long value) {
+        public Criteria andGcGreaterThan(BigDecimal value) {
             addCriterion("gc >", value, "gc");
             return (Criteria) this;
         }
 
-        public Criteria andGcGreaterThanOrEqualTo(Long value) {
+        public Criteria andGcGreaterThanOrEqualTo(BigDecimal value) {
             addCriterion("gc >=", value, "gc");
             return (Criteria) this;
         }
 
-        public Criteria andGcLessThan(Long value) {
+        public Criteria andGcLessThan(BigDecimal value) {
             addCriterion("gc <", value, "gc");
             return (Criteria) this;
         }
 
-        public Criteria andGcLessThanOrEqualTo(Long value) {
+        public Criteria andGcLessThanOrEqualTo(BigDecimal value) {
             addCriterion("gc <=", value, "gc");
             return (Criteria) this;
         }
 
-        public Criteria andGcIn(List<Long> values) {
+        public Criteria andGcIn(List<BigDecimal> values) {
             addCriterion("gc in", values, "gc");
             return (Criteria) this;
         }
 
-        public Criteria andGcNotIn(List<Long> values) {
+        public Criteria andGcNotIn(List<BigDecimal> values) {
             addCriterion("gc not in", values, "gc");
             return (Criteria) this;
         }
 
-        public Criteria andGcBetween(Long value1, Long value2) {
+        public Criteria andGcBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("gc between", value1, value2, "gc");
             return (Criteria) this;
         }
 
-        public Criteria andGcNotBetween(Long value1, Long value2) {
+        public Criteria andGcNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("gc not between", value1, value2, "gc");
             return (Criteria) this;
         }
@@ -685,52 +686,52 @@ public class StWjExample {
             return (Criteria) this;
         }
 
-        public Criteria andFyEqualTo(Long value) {
+        public Criteria andFyEqualTo(BigDecimal value) {
             addCriterion("fy =", value, "fy");
             return (Criteria) this;
         }
 
-        public Criteria andFyNotEqualTo(Long value) {
+        public Criteria andFyNotEqualTo(BigDecimal value) {
             addCriterion("fy <>", value, "fy");
             return (Criteria) this;
         }
 
-        public Criteria andFyGreaterThan(Long value) {
+        public Criteria andFyGreaterThan(BigDecimal value) {
             addCriterion("fy >", value, "fy");
             return (Criteria) this;
         }
 
-        public Criteria andFyGreaterThanOrEqualTo(Long value) {
+        public Criteria andFyGreaterThanOrEqualTo(BigDecimal value) {
             addCriterion("fy >=", value, "fy");
             return (Criteria) this;
         }
 
-        public Criteria andFyLessThan(Long value) {
+        public Criteria andFyLessThan(BigDecimal value) {
             addCriterion("fy <", value, "fy");
             return (Criteria) this;
         }
 
-        public Criteria andFyLessThanOrEqualTo(Long value) {
+        public Criteria andFyLessThanOrEqualTo(BigDecimal value) {
             addCriterion("fy <=", value, "fy");
             return (Criteria) this;
         }
 
-        public Criteria andFyIn(List<Long> values) {
+        public Criteria andFyIn(List<BigDecimal> values) {
             addCriterion("fy in", values, "fy");
             return (Criteria) this;
         }
 
-        public Criteria andFyNotIn(List<Long> values) {
+        public Criteria andFyNotIn(List<BigDecimal> values) {
             addCriterion("fy not in", values, "fy");
             return (Criteria) this;
         }
 
-        public Criteria andFyBetween(Long value1, Long value2) {
+        public Criteria andFyBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("fy between", value1, value2, "fy");
             return (Criteria) this;
         }
 
-        public Criteria andFyNotBetween(Long value1, Long value2) {
+        public Criteria andFyNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("fy not between", value1, value2, "fy");
             return (Criteria) this;
         }
@@ -745,52 +746,52 @@ public class StWjExample {
             return (Criteria) this;
         }
 
-        public Criteria andSdEqualTo(Long value) {
+        public Criteria andSdEqualTo(BigDecimal value) {
             addCriterion("sd =", value, "sd");
             return (Criteria) this;
         }
 
-        public Criteria andSdNotEqualTo(Long value) {
+        public Criteria andSdNotEqualTo(BigDecimal value) {
             addCriterion("sd <>", value, "sd");
             return (Criteria) this;
         }
 
-        public Criteria andSdGreaterThan(Long value) {
+        public Criteria andSdGreaterThan(BigDecimal value) {
             addCriterion("sd >", value, "sd");
             return (Criteria) this;
         }
 
-        public Criteria andSdGreaterThanOrEqualTo(Long value) {
+        public Criteria andSdGreaterThanOrEqualTo(BigDecimal value) {
             addCriterion("sd >=", value, "sd");
             return (Criteria) this;
         }
 
-        public Criteria andSdLessThan(Long value) {
+        public Criteria andSdLessThan(BigDecimal value) {
             addCriterion("sd <", value, "sd");
             return (Criteria) this;
         }
 
-        public Criteria andSdLessThanOrEqualTo(Long value) {
+        public Criteria andSdLessThanOrEqualTo(BigDecimal value) {
             addCriterion("sd <=", value, "sd");
             return (Criteria) this;
         }
 
-        public Criteria andSdIn(List<Long> values) {
+        public Criteria andSdIn(List<BigDecimal> values) {
             addCriterion("sd in", values, "sd");
             return (Criteria) this;
         }
 
-        public Criteria andSdNotIn(List<Long> values) {
+        public Criteria andSdNotIn(List<BigDecimal> values) {
             addCriterion("sd not in", values, "sd");
             return (Criteria) this;
         }
 
-        public Criteria andSdBetween(Long value1, Long value2) {
+        public Criteria andSdBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("sd between", value1, value2, "sd");
             return (Criteria) this;
         }
 
-        public Criteria andSdNotBetween(Long value1, Long value2) {
+        public Criteria andSdNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("sd not between", value1, value2, "sd");
             return (Criteria) this;
         }

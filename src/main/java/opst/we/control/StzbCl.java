@@ -1,11 +1,13 @@
 package opst.we.control;
 
+import opst.we.model.BaseResult;
 import opst.we.service.StzbService;
 import opst.we.util.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author: chgj
@@ -24,10 +26,13 @@ public class StzbCl extends BaseController {
     }
 
 
+    @ResponseBody
     @RequestMapping("update")
-    public String show(ModelMap map) {
-
+    public BaseResult show(ModelMap map) {
+        BaseResult result = new BaseResult();
         service.updateHero();
-        return getView("index");
+        result.setSuccess(true);
+        result.setMessage("更新成功");
+        return result;
     }
 }

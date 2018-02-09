@@ -75,13 +75,14 @@ public class HttpsClientSSL {
      */
     public static String postUrl(String url, String parameters) {
 //        logger.info("http url:" + url);
-        String responseText = null;
+        String responseText = "";
         HttpPost httpPost = new HttpPost(url);
         StringEntity stringEntity = new StringEntity(parameters, "GBK");
         stringEntity.setContentEncoding("GBK");
         httpPost.setEntity(stringEntity);
+        CloseableHttpResponse response = null;
         try {
-            CloseableHttpResponse response = httpClient.execute(httpPost);
+             response = httpClient.execute(httpPost);
             // 获取响应消息实体
             HttpEntity entity = response.getEntity();
             // 响应状态
@@ -98,7 +99,6 @@ public class HttpsClientSSL {
                     e.printStackTrace();
                 }
             }
-            return responseText;
         } catch (ConnectionPoolTimeoutException e){
             return "timeout";
         }catch (IOException e) {
@@ -107,7 +107,15 @@ public class HttpsClientSSL {
         } catch (Exception e) {
             logger.error("异常", e);
             e.printStackTrace();
+        }finally {
+            try {
+                if(null != response) {
+                    response.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return "";
+        return responseText;
     }
 }
