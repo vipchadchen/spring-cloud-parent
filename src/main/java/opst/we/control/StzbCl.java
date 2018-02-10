@@ -1,6 +1,7 @@
 package opst.we.control;
 
 import opst.we.model.BaseResult;
+import opst.we.model.StWj;
 import opst.we.service.StzbService;
 import opst.we.util.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,12 @@ public class StzbCl extends BaseController {
         result.setSuccess(true);
         result.setMessage("更新成功");
         return result;
+    }
+
+    @RequestMapping("first")
+    public String showNo(ModelMap map,String type) {
+        StWj wj = service.getFirstHero(type);
+        map.put("wj",wj);
+        return getView("first");
     }
 }

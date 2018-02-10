@@ -391,5 +391,8 @@
         <include refid="Base_Column_List"/>
         FROM ST_WJ
     </select>
+    <select id="getFirstHero" resultMap="BaseResultMap" >
+        SELECT <include refid="Base_Column_List"/> FROM ST_WJ ORDER BY ${column} desc LIMIT 1
+    </select>
 
 </mapper>

@@ -2,6 +2,7 @@ package opst.we.control;
 
 import opst.we.service.StzbService;
 import opst.we.util.BaseController;
+import opst.we.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,11 +25,10 @@ public class IndexCl extends BaseController {
 
     @RequestMapping("/")
     public String show(ModelMap map,String pages,String row) {
-//        pages = "1";
-//        row = "10";
-//        Page page =Page.getPage(pages, row);
-//        map.put("page",service.listWjByPage(page));
-        map.put("page",service.listWj());
+        pages = "1";
+        row = "10";
+        Page page =Page.getPage(pages, row);
+        map.put("page",service.listWjByPage(page));
         return getView("index");
     }
 }

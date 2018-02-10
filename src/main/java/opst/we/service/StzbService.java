@@ -13,4 +13,6 @@ public interface StzbService {
     Page listWjByPage(Page page);
 
     void updateHero();
+
+    StWj getFirstHero(String type);
 }

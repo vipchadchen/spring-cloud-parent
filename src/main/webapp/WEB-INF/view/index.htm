@@ -42,10 +42,10 @@
         </nav>
     </div>
 
-    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-light">
         <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic">这是都城</h1>
-            <p class="lead my-3">去年今日此门中，人面桃花相映红
+            <h1 class="display-4 font-italic text-dark">一首诗</h1>
+            <p class="lead my-3 text-dark">去年今日此门中，人面桃花相映红
                 <br/>人面不知何处去，桃花依旧笑春风</p>
             <!--<p class="lead mb-0"><a href="#" class="text-white font-weight-bold">继续</a></p>-->
         </div>
@@ -90,9 +90,6 @@
         <div class="col-md-8 blog-main">
             <h3 class="pb-3 mb-4 font-italic border-bottom">
                 武将信息
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    打开模态框
-                </button>
             </h3>
 
             <div class="blog-post">
@@ -110,10 +107,11 @@
                         <th>攻城</th>
                         <th>防御</th>
                         <th>速度</th>
+                        <th>距离</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <#if page?? >
+                    <#if  page.rows??>
                         <#list page.rows as item>
                             <tr>
                                 <td>${item.name}</td>
@@ -124,6 +122,7 @@
                                 <td>${item.gc}</td>
                                 <td>${item.fy}</td>
                                 <td>${item.sd}</td>
+                                <td>${item.jl}</td>
                             </tr>
                         </#list>
                     </#if>
@@ -148,13 +147,14 @@
                 <h4 class="font-italic">挑我喜欢</h4>
                 <ol class="list-unstyled mb-0">
                     <li><a id="wjupdate" href="javascript:;">数据更新</a></li>
-                    <li><a href="#">攻击o1</a></li>
-                    <li><a href="#">谋略No1</a></li>
-                    <li><a href="#">攻城No1</a></li>
-                    <li><a href="#">速度No1</a></li>
-                    <li><a href="#">距离No1</a></li>
-                    <li><a href="#">将星5</a></li>
-                    <li><a href="#">非酋之路</a></li>
+                    <li><a id="first1" data="1" href="javascript:;">攻击o1</a></li>
+                    <li><a id="first2" data="2" href="javascript:;">谋略No1</a></li>
+                    <li><a id="first3" data="3" href="javascript:;">攻城No1</a></li>
+                    <li><a id="first4" data="4" href="javascript:;">速度No1</a></li>
+                    <li><a id="first5" data="5" href="javascript:;">距离No1</a></li>
+                    <li><a id="first6" data="6" href="javascript:;">防御No1</a></li>
+                    <li><a class="firstcl" data-src="1" href="#">将星5</a></li>
+                    <li><a class="firstcl" data-src="1" href="#">非酋之路</a></li>
                 </ol>
             </div>
 
@@ -172,31 +172,6 @@
     </div><!-- /.row -->
 
 </main><!-- /.container -->
-
-<!-- 模态框 -->
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <!-- 模态框头部 -->
-            <div class="modal-header">
-                <h4 class="modal-title">模态框头部</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- 模态框主体 -->
-            <div class="modal-body">
-                模态框内容..
-            </div>
-
-            <!-- 模态框底部 -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 <footer class="blog-footer">
     <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.

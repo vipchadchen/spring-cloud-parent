@@ -65,6 +65,27 @@ public class StzbServiceImpl implements StzbService {
         }
     }
 
+    @Override
+    public StWj getFirstHero(String type) {
+        if("1".equals(type)){
+            type = "gj";
+        }else if("2".equals(type)){
+            type = "mn";
+        }else if("3".equals(type)){
+            type = "gc";
+        }else if("4".equals(type)){
+            type = "sd";
+        }else if("5".equals(type)){
+            type = "jl";
+        }else if("6".equals(type)){
+            type = "fy";
+        }else{
+            type = "gj";
+        }
+        StWj wj =  mapper.getFirstHero(type);
+        return wj;
+    }
+
     private StWj getElementHtml(String s, Integer id) {
         StWj st = new StWj();
         st.setId(id);

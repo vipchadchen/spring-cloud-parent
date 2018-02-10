@@ -35,4 +35,6 @@ public interface StWjMapper {
     Integer selectWxMaxId();
 
     List listWjByPage(Page page);
+
+    StWj getFirstHero(@Param("column") String column);
 }

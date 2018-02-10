@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${css}/blog.css">
+    <title>~(￣▽￣)~</title>
+    <link rel="icon" href="${images}/logo.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="${images}/logo.ico" type="image/x-icon"/>
+</head>
+<body>
+<div class="container">
+    <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+                <a class="text-muted" href="${ctx}/"><img src="${images}/logo.ico" style="height: 35px;"
+                                                    alt="Cinque Terre"></a>
+            </div>
+            <div class="col-4 text-center">
+                <a class="blog-header-logo text-dark" href="#">~(￣▽￣)~</a>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+            <a class="p-2 text-muted" href="${ctx}/">shuaitu</a>
+            <a class="p-2 text-muted" href="#">dnf</a>
+            <a class="p-2 text-muted" href="#">ticket</a>
+            <a class="p-2 text-muted" href="#">log</a>
+            <a class="p-2 text-muted" href="#">css</a>
+            <a class="p-2 text-muted" href="#">mysql</a>
+            <a class="p-2 text-muted" href="#">java</a>
+            <a class="p-2 text-muted" href="#">contact</a>
+            <a class="p-2 text-muted" href="#">about</a>
+        </nav>
+    </div>
+
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 font-italic">这是都城</h1>
+            <p class="lead my-3">去年今日此门中，人面桃花相映红
+                <br/>人面不知何处去，桃花依旧笑春风</p>
+            <!--<p class="lead mb-0"><a href="#" class="text-white font-weight-bold">继续</a></p>-->
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">推荐武将</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark" href="#">${wj.name}</a>
+                    </h3>
+                    <div class="mb-1 text-muted">${wj.xj}星</div>
+                    <p class="card-text mb-auto">攻击:${wj.gj}速度:${wj.sd}<br/>防御:${wj.fy}距离:${wj.jl}<br/>攻城:${wj.gc}谋略:${wj.mn}</p>
+                    <a href="#">详情</a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block" src="${images}/logo.ico" style="width: 13em;"
+                     alt="Card image cap">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-success">攻城推荐</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark" href="#">武将名称</a>
+                    </h3>
+                    <div class="mb-1 text-muted">4星</div>
+                    <p class="card-text mb-auto">普天之下，莫非王土；率土之滨，莫非王臣。一服一世界，您可以发展国家，征战四方，甚至一统天下。</p>
+                    <a href="#">继续</a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block" src="${images}/logo.ico" style="width: 13em;"
+                     alt="Card image cap">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 模态框 -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">模态框头部</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+                模态框内容..
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="blog-footer">
+    <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.
+    </p>
+    <p>
+        <a href="#">Back to top</a>
+    </p>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="${js}/stzb.js"></script>
+<script type="application/javascript">var PATH = "${ctx}"</script>
+</body>
+</html>
