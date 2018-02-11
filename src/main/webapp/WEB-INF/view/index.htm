@@ -1,67 +1,37 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${css}/blog.css">
-    <title>~(￣▽￣)~</title>
-    <link rel="icon" href="${images}/logo.ico" type="image/x-icon"/>
-    <link rel="shortcut icon" href="${images}/logo.ico" type="image/x-icon"/>
+    <#include "/inc/header.htm" />
 </head>
 <body>
 <div class="container">
-    <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-                <a class="text-muted" href="${ctx}/"><img src="${images}/logo.ico" style="height: 35px;"
-                                                    alt="Cinque Terre"></a>
-            </div>
-            <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="#">~(￣▽￣)~</a>
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
-
-            </div>
-        </div>
-    </header>
-
-    <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="${ctx}/">shuaitu</a>
-            <a class="p-2 text-muted" href="#">dnf</a>
-            <a class="p-2 text-muted" href="#">ticket</a>
-            <a class="p-2 text-muted" href="#">log</a>
-            <a class="p-2 text-muted" href="#">css</a>
-            <a class="p-2 text-muted" href="#">mysql</a>
-            <a class="p-2 text-muted" href="#">java</a>
-            <a class="p-2 text-muted" href="#">contact</a>
-            <a class="p-2 text-muted" href="#">about</a>
-        </nav>
-    </div>
-
+    <#include "/inc/top.htm" />
     <div class="jumbotron p-3 p-md-5 text-white rounded bg-light">
         <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic text-dark">一首诗</h1>
+            <h1 class="display-4 font-italic text-dark">我很懒,导致你很丑！</h1>
             <p class="lead my-3 text-dark">去年今日此门中，人面桃花相映红
                 <br/>人面不知何处去，桃花依旧笑春风</p>
-            <!--<p class="lead mb-0"><a href="#" class="text-white font-weight-bold">继续</a></p>-->
         </div>
     </div>
+
+    <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="${ctx}/stzb/hero/list">列表</a>
+    </nav>
 
     <div class="row mb-2">
         <div class="col-md-6">
             <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-primary">推荐信息</strong>
+                    <strong class="d-inline-block mb-2 text-primary">攻击No1</strong>
                     <h3 class="mb-0">
-                        <a class="text-dark" href="#">无尽名称</a>
+                        <a class="text-dark" href="#">${rechero[0].uniquename!}</a>
                     </h3>
-                    <div class="mb-1 text-muted">5星</div>
-                    <p class="card-text mb-auto">利益决定战略，玩家们场上激烈对抗，场外合纵连横。是乱世永恒，还是天下一统？这是一场人与人创造的乱世风云史</p>
-                    <a href="#">继续</a>
+                    <div class="mb-1 text-muted">星级:${rechero[0].quality}</div>
+                    <p class="card-text mb-auto">攻击:${rechero[0].attack}(${rechero[0].attgrow?string('#.##')}),
+                    <p>
+                        攻击:${rechero[0].attack},谋略:${rechero[0].ruse},攻击距离:${rechero[0].distance},攻城:${rechero[0].siege},防御:${rechero[0].def},速度:${rechero[0].speed}</p>
+                    </p>
+                    <a href="${ctx}/stzb/hero/detail/${rechero[0].id}">详情</a>
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block" src="${images}/logo.ico" style="width: 13em;"
                      alt="Card image cap">
@@ -70,13 +40,16 @@
         <div class="col-md-6">
             <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-success">攻城推荐</strong>
+                    <strong class="d-inline-block mb-2 text-success">谋略No1</strong>
                     <h3 class="mb-0">
-                        <a class="text-dark" href="#">武将名称</a>
+                        <a class="text-dark" href="#">${rechero[1].uniquename!}</a>
                     </h3>
-                    <div class="mb-1 text-muted">4星</div>
-                    <p class="card-text mb-auto">普天之下，莫非王土；率土之滨，莫非王臣。一服一世界，您可以发展国家，征战四方，甚至一统天下。</p>
-                    <a href="#">继续</a>
+                    <div class="mb-1 text-muted">星级:${rechero[1].quality}</div>
+                    <p class="card-text mb-auto">谋略:${rechero[1].ruse}(${rechero[1].rusegrow?string('#.##')}),
+                    <p>
+                        攻击:${rechero[1].attack},谋略:${rechero[1].ruse},攻击距离:${rechero[1].distance},攻城:${rechero[1].siege},防御:${rechero[1].def},速度:${rechero[1].speed}</p>
+                    </p>
+                    <a href="${ctx}/stzb/hero/detail/${rechero[1].id}">详情</a>
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block" src="${images}/logo.ico" style="width: 13em;"
                      alt="Card image cap">
@@ -86,100 +59,91 @@
 </div>
 
 <main role="main" class="container">
-    <div class="row">
-        <div class="col-md-8 blog-main">
-            <h3 class="pb-3 mb-4 font-italic border-bottom">
-                武将信息
-            </h3>
-
-            <div class="blog-post">
-                <h2 class="blog-post-title">列表</h2>
-                <p class="blog-post-meta">2018年02月9号</p>
-                <hr>
-                <table class="table table-bordered table-sm">
-                    <thead>
-                    <tr>
-                        <th>武将</th>
-                        <th>星级</th>
-                        <th>攻击</th>
-                        <th>cost</th>
-                        <th>谋略</th>
-                        <th>攻城</th>
-                        <th>防御</th>
-                        <th>速度</th>
-                        <th>距离</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <#if  page.rows??>
-                        <#list page.rows as item>
-                            <tr>
-                                <td>${item.name}</td>
-                                <td>${item.xj}</td>
-                                <td>${item.gj}</td>
-                                <td>${item.cost?string('#.##')}</td>
-                                <td>${item.mn}</td>
-                                <td>${item.gc}</td>
-                                <td>${item.fy}</td>
-                                <td>${item.sd}</td>
-                                <td>${item.jl}</td>
-                            </tr>
-                        </#list>
-                    </#if>
-                    </tbody>
-                </table>
-            </div><!-- /.blog-post -->
-
-            <nav class="blog-pagination">
-                <a class="btn btn-outline-primary" href="#">最新</a>
-                <a class="btn btn-outline-secondary disabled" href="#">历史</a>
-            </nav>
-
-        </div><!-- /.blog-main -->
-
-        <aside class="col-md-4 blog-sidebar">
-            <div class="p-3 mb-3 bg-light rounded">
-                <h4 class="font-italic">关于数据</h4>
-                <p class="mb-0">数据不全，会出现超时情况需要多次更新</p>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">攻城No1</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark" href="#">${rechero[4].uniquename!}</a>
+                    </h3>
+                    <div class="mb-1 text-muted">星级:${rechero[4].quality}</div>
+                    <p class="card-text mb-auto">攻城:${rechero[4].siege}(${rechero[4].siegegrow?string('#.##')}),
+                    <p>
+                        攻击:${rechero[4].attack},谋略:${rechero[4].ruse},攻击距离:${rechero[4].distance},攻城:${rechero[4].siege},防御:${rechero[4].def},速度:${rechero[4].speed}</p>
+                    </p>
+                    <a href="${ctx}/stzb/hero/detail/${rechero[4].id}">详情</a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block" src="${images}/logo.ico" style="width: 13em;"
+                     alt="Card image cap">
             </div>
-
-            <div class="p-3">
-                <h4 class="font-italic">挑我喜欢</h4>
-                <ol class="list-unstyled mb-0">
-                    <li><a id="wjupdate" href="javascript:;">数据更新</a></li>
-                    <li><a id="first1" data="1" href="javascript:;">攻击o1</a></li>
-                    <li><a id="first2" data="2" href="javascript:;">谋略No1</a></li>
-                    <li><a id="first3" data="3" href="javascript:;">攻城No1</a></li>
-                    <li><a id="first4" data="4" href="javascript:;">速度No1</a></li>
-                    <li><a id="first5" data="5" href="javascript:;">距离No1</a></li>
-                    <li><a id="first6" data="6" href="javascript:;">防御No1</a></li>
-                    <li><a class="firstcl" data-src="1" href="#">将星5</a></li>
-                    <li><a class="firstcl" data-src="1" href="#">非酋之路</a></li>
-                </ol>
+        </div>
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-success">速度No1</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark" href="#">${rechero[3].uniquename!}</a>
+                    </h3>
+                    <div class="mb-1 text-muted">星级:${rechero[3].quality}</div>
+                    <p class="card-text mb-auto">速度:${rechero[3].speed}(${rechero[3].speedgrow?string('#.##')}),
+                    <p>
+                        攻击:${rechero[3].attack},谋略:${rechero[3].ruse},攻击距离:${rechero[3].distance},攻城:${rechero[3].siege},防御:${rechero[3].def},速度:${rechero[3].speed}</p>
+                    </p>
+                    <a href="${ctx}/stzb/hero/detail/${rechero[3].id}">详情</a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block" src="${images}/logo.ico" style="width: 13em;"
+                     alt="Card image cap">
             </div>
+        </div>
+    </div>
 
-            <!--<div class="p-3">-->
-            <!--<h4 class="font-italic">Elsewhere</h4>-->
-            <!--<ol class="list-unstyled">-->
-            <!--<li><a href="#">GitHub</a></li>-->
-            <!--<li><a href="#">Twitter</a></li>-->
-            <!--<li><a href="#">Facebook</a></li>-->
-            <!--</ol>-->
-            <!--</div>-->
-        </aside>
-        <!-- /.blog-sidebar -->
+</main>
 
-    </div><!-- /.row -->
+<main role="main" class="container">
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">防御No1</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark" href="#">${rechero[5].uniquename!}</a>
+                    </h3>
+                    <div class="mb-1 text-muted">星级:${rechero[5].quality}</div>
+                    <p class="card-text mb-auto">防御:${rechero[5].def}(${rechero[5].defgrow?string('#.##')}),
+                    <p>
+                        攻击:${rechero[5].attack},谋略:${rechero[5].ruse},攻击距离:${rechero[5].distance},攻城:${rechero[5].siege},防御:${rechero[5].def},速度:${rechero[5].speed}</p>
+                    </p>
+                    <a href="${ctx}/stzb/hero/detail/${rechero[5].id}">详情</a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block" src="${images}/logo.ico" style="width: 13em;"
+                     alt="Card image cap">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-success">距离</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark" href="#">${rechero[2].uniquename!}</a>
+                    </h3>
+                    <div class="mb-1 text-muted">星级:${rechero[2].quality}</div>
+                    <p class="card-text mb-auto">距离:${rechero[2].distance},
+                    <p>
+                    攻击:${rechero[2].attack},谋略:${rechero[2].ruse},攻击距离:${rechero[2].distance},攻城:${rechero[2].siege},防御:${rechero[2].def},速度:${rechero[2].speed}</p>
+                    </p>
+                    <a href="${ctx}/stzb/hero/detail/${rechero[2].id}">详情</a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block" src="${images}/logo.ico" style="width: 13em;"
+                     alt="Card image cap">
+            </div>
+        </div>
+    </div>
 
-</main><!-- /.container -->
 
-<footer class="blog-footer">
-    <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.
-    </p>
-    <p>
-        <a href="#">Back to top</a>
-    </p>
-</footer>
+</main>
+
+<#include "/inc/footer.htm" />
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

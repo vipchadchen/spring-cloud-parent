@@ -1,5 +1,6 @@
 package testcc;
 
+import com.alibaba.fastjson.JSONObject;
 import opst.we.util.HttpsClientSSL;
 import opst.we.util.JdbcUtils;
 import opst.we.util.JsonUtil;
@@ -24,9 +25,12 @@ public class StzbTest {
     static Pattern pattern = Pattern.compile("[^0-9]");
     public static void main(String[] args) {
 //        insert();
-        String s = HttpsClientSSL.postUrl("http://stzb.163.com/herolist/100001.html","");
+        String s = HttpsClientSSL.get("https://app.gamer.163.com/game-db/g10/hero/100479","");
         System.out.println(s);
-                getElement(s,1L);
+        JSONObject j = JsonUtil.toJson(JsonUtil.toJson(s).getString("hero"));
+        System.out.println(j);
+        System.out.println(j.getString("desc"));
+//                getElement(s,1L);
 
     }
 

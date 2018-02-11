@@ -3,6 +3,7 @@ package opst.we.util;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ConnectionPoolTimeoutException;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
@@ -95,6 +96,52 @@ public class HttpsClientSSL {
             if (entity != null) {
                 try {
                     responseText = EntityUtils.toString(entity,"GBK");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (ConnectionPoolTimeoutException e){
+            return "timeout";
+        }catch (IOException e) {
+            logger.error("IO异常", e);
+            e.printStackTrace();
+        } catch (Exception e) {
+            logger.error("异常", e);
+            e.printStackTrace();
+        }finally {
+            try {
+                if(null != response) {
+                    response.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return responseText;
+    }
+
+
+    public static String get(String url, String parameters) {
+//        logger.info("http url:" + url);
+        String responseText = "";
+        HttpGet httpget = new HttpGet(url);
+        StringEntity stringEntity = new StringEntity(parameters, "GBK");
+        stringEntity.setContentEncoding("GBK");
+        CloseableHttpResponse response = null;
+        try {
+            response = httpClient.execute(httpget);
+            // 获取响应消息实体
+            HttpEntity entity = response.getEntity();
+            // 响应状态
+            logger.info("http status:" + response.getStatusLine());
+            if(200 != response.getStatusLine().getStatusCode()){
+                logger.error(count+":count："+response.getStatusLine().getStatusCode());
+                return  "";
+            }
+            // 判断响应实体是否为空
+            if (entity != null) {
+                try {
+                    responseText = EntityUtils.toString(entity,"utf-8");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

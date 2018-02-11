@@ -2,6 +2,7 @@ var stzb = {
     init : function() {
         $("#wjupdate").unbind('click').bind('click', this.wjupdate);
         $("#first1,#first2,#first3,#first4,#first5,#first6").unbind('click').bind('click', this.firstcl);
+        $(".detailclick").unbind('click').bind('click', this.detailclick);
     },
     wjupdate:function() {
         $.ajax({
@@ -23,6 +24,10 @@ var stzb = {
     firstcl:function() {
         var type = $(this).attr('data');
         window.location.href=PATH+"/stzb/first?type="+type;
+    },
+    detailclick:function() {
+        var id = $(this).attr("data");
+        window.location.href=PATH+"/stzb/hero/detail/"+id;
     },
 
 }

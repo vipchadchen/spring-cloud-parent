@@ -1,12 +1,15 @@
 package opst.we.control;
 
 import opst.we.model.BaseResult;
-import opst.we.model.StWj;
+import opst.we.model.StHero;
 import opst.we.service.StzbService;
 import opst.we.util.BaseController;
+import opst.we.util.Page;
+import opst.we.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -31,16 +34,29 @@ public class StzbCl extends BaseController {
     @RequestMapping("update")
     public BaseResult show(ModelMap map) {
         BaseResult result = new BaseResult();
-        service.updateHero();
+        service.updateAllHero();
         result.setSuccess(true);
         result.setMessage("更新成功");
         return result;
     }
 
-    @RequestMapping("first")
-    public String showNo(ModelMap map,String type) {
-        StWj wj = service.getFirstHero(type);
-        map.put("wj",wj);
-        return getView("first");
+    @RequestMapping("/hero/detail/{id}")
+    public String detail(ModelMap map,@PathVariable Integer id) {
+        StHero hero = service.getStHeroById(id);
+        map.put("hero",hero);
+        return getView("herodetail");
+    }
+
+    @RequestMapping("/hero/list")
+    public String list(ModelMap map,StHero hero,String page,String rows) {
+        if(StringUtils.isEmpty(page)){
+            page = "1";
+        }
+        if(StringUtils.isEmpty(rows)){
+            rows = "20";
+        }
+        map.put("page",service.listStHeroByPage(Page.getPage(page,rows),hero));
+        map.put("hero",hero);
+        return getView("herolist");
     }
 }

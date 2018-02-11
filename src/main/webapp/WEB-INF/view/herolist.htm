@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<#include "/inc/header.htm" />
+<body>
+<div class="container">
+    <#include "/inc/top.htm" />
+</div>
+<#include "/inc/page.htm" />
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-12 blog-main">
+            <div class="blog-post">
+                <h2 class="blog-post-title">武将列表</h2>
+                <form class="form-inline" action="${ctx}/stzb/hero/list">
+                    <label for="name">名称:</label>
+                    <input type="text" class="form-control" id="name" value="${hero.name!''}" name="name" placeholder="输入名称">
+                    <button type="submit" class="btn btn-primary ">查询</button>
+                </form>
+                <hr>
+                <table class="table table-sm">
+                    <thead>
+                    <tr>
+                        <th>武将</th>
+                        <th>攻击</th>
+                        <th>谋略</th>
+                        <th>速度</th>
+                        <th>防御</th>
+                        <th>攻城</th>
+                        <th>距离</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <#list page.rows as item>
+                        <tr>
+                            <td class="detailclick" data="${item.id}">${item.uniquename}</td>
+                            <td>${item.attack}</td>
+                            <td>${item.ruse}</td>
+                            <td>${item.speed}</td>
+                            <td>${item.def}</td>
+                            <td>${item.siege}</td>
+                            <td>${item.distance}</td>
+                        </tr>
+                    </#list>
+                    </tbody>
+                </table>
+                <p class="text-right"><@p page=page /></p>
+            </div><!-- /.blog-post -->
+        </div>
+    </div>
+</main>
+<#include "/inc/footer.htm" />
+</body>
+</html>

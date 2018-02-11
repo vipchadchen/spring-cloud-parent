@@ -171,9 +171,9 @@ public class Arequest extends HttpServletRequestWrapper {
 	public String getPageUrl(String param) {
 		if (param != null) {
 			String query = this.request.getQueryString();
-			if (query == null)
+			if (query == null) {
 				return this.request.getRequestURI().toString() + "?" + param;
-
+			}
 			String paramurl = getGetChStr(query) + "&" + param;
 			return this.request.getRequestURI().toString() + "?" + getParam(getParam(paramurl));
 		}
