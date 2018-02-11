@@ -39,4 +39,6 @@ public interface StHeroMapper {
     StHero getDefalutHero(@Param("column") String column);
 
     List<StHero> listStHeroByPage(Page page, @Param("hero")StHero hero);
+
+    List<StHero> listContrastHeroByUser(Integer userid);
 }

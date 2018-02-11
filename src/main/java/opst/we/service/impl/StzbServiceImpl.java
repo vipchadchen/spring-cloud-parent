@@ -1,6 +1,8 @@
 package opst.we.service.impl;
 
+import opst.we.model.StContrast;
 import opst.we.model.StHero;
+import opst.we.model.mapper.StContrastMapper;
 import opst.we.model.mapper.StHeroMapper;
 import opst.we.service.StzbService;
 import opst.we.service.dto.Root;
@@ -23,6 +25,8 @@ import java.util.regex.Pattern;
 public class StzbServiceImpl implements StzbService {
     @Autowired
     private StHeroMapper heroMapper;
+    @Autowired
+    private StContrastMapper stContrastMapper;
 
     private static final Logger logger = LoggerFactory.getLogger(StzbServiceImpl.class);
     static Pattern pattern = Pattern.compile("[^0-9]");
@@ -69,6 +73,29 @@ public class StzbServiceImpl implements StzbService {
     public Page listStHeroByPage(Page page, StHero hero) {
         List<StHero> list = heroMapper.listStHeroByPage(page, hero);
         return page.setRows(list);
+    }
+
+    @Override
+    public void addContrastHero(Integer id) {
+        StHero stHero = heroMapper.selectByPrimaryKey(id);
+        if (stHero == null) {
+            throw new RuntimeException("武将不存在，添加失败");
+        }
+        StContrast stContrast = stContrastMapper.getContrastByHeroid(id);
+        if (stContrast != null) {
+            throw new RuntimeException("重复添加");
+        }
+        stContrast = new StContrast();
+        stContrast.setSdate(new Date());
+        stContrast.setHeroid(id);
+        stContrast.setStatus(1);
+        stContrast.setUserid(1);
+        stContrastMapper.insert(stContrast);
+    }
+
+    @Override
+    public List<StHero> listContrastHero(Integer userid) {
+        return heroMapper.listContrastHeroByUser(userid);
     }
 
 //    private StWj getElementHtml(String s, Integer id) {

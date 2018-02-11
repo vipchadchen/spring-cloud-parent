@@ -700,29 +700,33 @@
   </update>
 
   <select id="selectHeroMaxId" resultType="java.lang.Integer">
-    SELECT  MAX(ID)  FROM ST_HERO
+    SELECT  MAX(ID)  FROM st_hero
   </select>
 
   <select id="getDefalutHero" resultMap="BaseResultMap">
-    SELECT  <include refid="Base_Column_List"/>  FROM ST_HERO ORDER BY ${column} desc LIMIT 1
+    SELECT  <include refid="Base_Column_List"/>  FROM st_hero ORDER BY ${column} desc LIMIT 1
   </select>
 
 
   <select id="recommendedHero" resultMap="BaseResultMap" >
-    (SELECT <include refid="Base_Column_List"/> FROM ST_HERO b ORDER BY attack desc LIMIT 1 )UNION
-    (SELECT <include refid="Base_Column_List"/> FROM ST_HERO b ORDER BY ruse desc LIMIT 1 )UNION
-    (SELECT <include refid="Base_Column_List"/> FROM ST_HERO b ORDER BY distance desc LIMIT 1) UNION
-    (SELECT <include refid="Base_Column_List"/> FROM ST_HERO b ORDER BY speed desc LIMIT 1 ) UNION
-    (SELECT <include refid="Base_Column_List"/> FROM ST_HERO b ORDER BY siege desc LIMIT 1 ) UNION
-    (SELECT <include refid="Base_Column_List"/> FROM ST_HERO b ORDER BY def desc LIMIT 1 )
+    (SELECT <include refid="Base_Column_List"/> FROM st_hero b ORDER BY attack desc LIMIT 1 )UNION
+    (SELECT <include refid="Base_Column_List"/> FROM st_hero b ORDER BY ruse desc LIMIT 1 )UNION
+    (SELECT <include refid="Base_Column_List"/> FROM st_hero b ORDER BY distance desc LIMIT 1) UNION
+    (SELECT <include refid="Base_Column_List"/> FROM st_hero b ORDER BY speed desc LIMIT 1 ) UNION
+    (SELECT <include refid="Base_Column_List"/> FROM st_hero b ORDER BY siege desc LIMIT 1 ) UNION
+    (SELECT <include refid="Base_Column_List"/> FROM st_hero b ORDER BY def desc LIMIT 1 )
   </select>
 
   <select id="listStHeroByPage" resultMap="BaseResultMap" >
-    SELECT <include refid="Base_Column_List"/> FROM ST_HERO
+    SELECT <include refid="Base_Column_List"/> FROM st_hero
     WHERE 1 = 1
     <if test="hero.name != null" >
      AND NAME LIKE concat('%',#{hero.name},'%')
     </if>
+  </select>
+
+  <select id="listContrastHeroByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select  b.* from st_contrast a,st_hero b where   userid = #{userid} and status = 1 and heroid = b.id
   </select>
 
 </mapper>

@@ -33,11 +33,11 @@
                     <#list (1..50)?reverse as i>
                         <tr>
                             <td>${i}</td>
-                            <td>${(hero.attack+hero.attgrow*i)?string('#.##')}</td>
-                            <td>${(hero.ruse+hero.rusegrow*i)?string('#.##')}</td>
-                            <td>${(hero.speed+hero.speedgrow*i)?string('#.##')}</td>
-                            <td>${(hero.def+hero.defgrow*i)?string('#.##')}</td>
-                            <td>${(hero.siege+hero.siegegrow*i)?string('#.##')}</td>
+                            <td>${(hero.attack+hero.attgrow*(i-1))?string('#.##')}</td>
+                            <td>${(hero.ruse+hero.rusegrow*(i-1))?string('#.##')}</td>
+                            <td>${(hero.speed+hero.speedgrow*(i-1))?string('#.##')}</td>
+                            <td>${(hero.def+hero.defgrow*(i-1))?string('#.##')}</td>
+                            <td>${(hero.siege+hero.siegegrow*(i-1))?string('#.##')}</td>
                         </tr>
                     </#list>
                     </tbody>

@@ -36,4 +36,8 @@ public interface StzbService {
      * @date: 2018/2/11 13:24
      */
     Page listStHeroByPage(Page page, StHero hero);
+
+    void addContrastHero(Integer id);
+
+    List<StHero> listContrastHero(Integer userid);
 }

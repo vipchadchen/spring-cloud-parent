@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<#include "/inc/header.htm" />
+<body>
+<div class="container">
+    <#include "/inc/top.htm" />
+</div>
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-12 blog-main">
+            <div class="blog-post">
+                <h2 class="blog-post-title">对比列表</h2>
+                <table class="table table-sm">
+                    <thead>
+                    <tr>
+                        <th>武将</th>
+                        <th>攻击</th>
+                        <th>谋略</th>
+                        <th>速度</th>
+                        <th>防御</th>
+                        <th>攻城</th>
+                        <th>距离</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <#if list??>
+                    <#list list as item>
+                    <tr>
+                        <td>${item.uniquename}</td>
+                        <td  class="contrastdel" data="${item.id}">${item.attack}</td>
+                        <td>${item.ruse}</td>
+                        <td>${item.speed}</td>
+                        <td>${item.def}</td>
+                        <td>${item.siege}</td>
+                        <td>${item.distance}</td>
+                    </tr>
+                    </#list>
+                </#if>
+                </tbody>
+                </table>
+            </div><!-- /.blog-post -->
+        </div>
+    </div>
+</main>
+<#include "/inc/footer.htm" />
+</body>
+</html>
