@@ -98,6 +98,11 @@ public class StzbServiceImpl implements StzbService {
         return heroMapper.listContrastHeroByUser(userid);
     }
 
+    @Override
+    public void delContrastHero(Integer heroid) {
+        stContrastMapper.deleteByHeroid(heroid);
+    }
+
 //    private StWj getElementHtml(String s, Integer id) {
 //        StWj st = new StWj();
 //        st.setId(id);

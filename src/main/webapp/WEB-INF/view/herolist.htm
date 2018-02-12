@@ -24,6 +24,7 @@
                     <thead>
                     <tr>
                         <th>武将</th>
+                        <th>星级</th>
                         <th>攻击</th>
                         <th>谋略</th>
                         <th>速度</th>
@@ -36,6 +37,7 @@
                     <#list page.rows as item>
                         <tr>
                             <td data-toggle="popover" title="点击查看详细" delay="10" class="detailclick" data="${item.id}">${item.uniquename}</td>
+                            <td>${item.quality}</td>
                             <td data-toggle="popover" title="点击加入对比" delay="10"  class="detailcontrast" data="${item.id}">${item.attack}</td>
                             <td>${item.ruse}</td>
                             <td>${item.speed}</td>

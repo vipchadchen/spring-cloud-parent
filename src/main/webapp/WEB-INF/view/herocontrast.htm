@@ -10,34 +10,67 @@
     <div class="row">
         <div class="col-md-12 blog-main">
             <div class="blog-post">
-                <h2 class="blog-post-title">对比列表</h2>
-                <table class="table table-sm">
+                <h2 class="blog-post-title">属性列表</h2>
+                <table class="table table-sm table-hover">
                     <thead>
                     <tr>
-                        <th>武将</th>
-                        <th>攻击</th>
-                        <th>谋略</th>
-                        <th>速度</th>
-                        <th>防御</th>
-                        <th>攻城</th>
-                        <th>距离</th>
+                        <th>内容</th>
+                        <#if list??>
+                            <#list list as it>
+                                <th class="contrastdel" title="点击删除" data="${it.id}">${it.name}</th>
+                            </#list>
+                        </#if>
                     </tr>
                     </thead>
                     <tbody>
-                    <#if list??>
-                    <#list list as item>
                     <tr>
-                        <td>${item.uniquename}</td>
-                        <td  class="contrastdel" data="${item.id}">${item.attack}</td>
-                        <td>${item.ruse}</td>
-                        <td>${item.speed}</td>
-                        <td>${item.def}</td>
-                        <td>${item.siege}</td>
-                        <td>${item.distance}</td>
+                        <td>星级</td>
+                        <#list list as it>
+                            <td>${it.quality}</td>
+                        </#list>
                     </tr>
-                    </#list>
-                </#if>
-                </tbody>
+                    <tr>
+                        <td>距离</td>
+                        <#list list as it>
+                            <td>${it.distance}</td>
+                        </#list>
+                    </tr>
+                    <#if list??>
+                        <#list (20..50) as i>
+                        <tr class="table-primary">
+                            <td>攻击${i}</td>
+                            <#list list as it>
+                                <td title="${it.methodname}:${it.methoddesc}">${(it.attack+it.attgrow*(i-1))?string('#.##')}</td>
+                            </#list>
+                        </tr>
+                        <tr>
+                            <td>谋略${i}</td>
+                            <#list list as it>
+                                <td>${(it.ruse+it.rusegrow*(i-1))?string('#.##')}</td>
+                            </#list>
+                        </tr>
+                        <tr>
+                            <td>防御${i}</td>
+                            <#list list as it>
+                                <td>${(it.def+it.defgrow*(i-1))?string('#.##')}</td>
+                            </#list>
+                        </tr>
+                        <tr>
+                            <td>攻城${i}</td>
+                            <#list list as it>
+                                <td>${(it.siege+it.siegegrow*(i-1))?string('#.##')}</td>
+                            </#list>
+                        </tr>
+                        <tr>
+                            <td>速度${i}</td>
+                            <#list list as it>
+                                <td>${(it.speed+it.speedgrow*(i-1))?string('#.##')}</td>
+                            </#list>
+                        </tr>
+
+                        </#list>
+                    </#if>
+                    </tbody>
                 </table>
             </div><!-- /.blog-post -->
         </div>

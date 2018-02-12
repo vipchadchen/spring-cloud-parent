@@ -5,6 +5,7 @@ var stzb = {
         $(".detailclick").unbind('click').bind('click', this.detailclick);
         $(".detailcontrast").unbind('click').bind('click', this.detailcontrast);
         $("#btncont").unbind('click').bind('click', this.btncont);
+        $(".contrastdel").unbind('click').bind('click', this.contrastdel);
     },
     wjupdate:function() {
         $.ajax({
@@ -42,6 +43,20 @@ var stzb = {
     },
     btncont:function() {
         window.location.href=PATH+"/stzb/hero/contrastlist";
+    },
+    contrastdel:function() {
+        var id = $(this).attr("data");
+        $.ajax({
+            type : "post",
+            url : PATH+"/stzb/hero/contrastdel/"+id,
+            success : function(data) {
+                alert(data.message);
+                window.location.reload();
+            },
+            error : function(msg) {
+                alert('连接服务器失败，请重试！');
+            }
+        });
     },
 
 }

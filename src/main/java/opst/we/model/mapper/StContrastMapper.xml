@@ -214,4 +214,9 @@
     from st_contrast
     where heroid = #{heroid,jdbcType=INTEGER} and userid = 1 and status = 1 limit 1
   </select>
+
+  <delete id="deleteByHeroid" parameterType="java.lang.Integer" >
+    update st_contrast set status = -99
+    where heroid = #{heroid,jdbcType=INTEGER} and userid = 1
+  </delete>
 </mapper>

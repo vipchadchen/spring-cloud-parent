@@ -36,8 +36,25 @@ public interface StzbService {
      * @date: 2018/2/11 13:24
      */
     Page listStHeroByPage(Page page, StHero hero);
-
-    void addContrastHero(Integer id);
-
+    /**
+     * @author: chgj
+     * @param heroid 武将ID
+     * @description: 添加对比列表
+     * @date: 2018/2/12 9:19
+     */
+    void addContrastHero(Integer heroid);
+    /**
+     * @author: chgj
+     * @param userid 用户ID
+     * @description: 查看对比列表
+     * @date: 2018/2/12 9:19
+     */
     List<StHero> listContrastHero(Integer userid);
+    /**
+     * @author: chgj
+     * @param heroid 武将ID
+     * @description: 删除对比列表
+     * @date: 2018/2/12 9:19
+     */
+    void delContrastHero(Integer heroid);
 }

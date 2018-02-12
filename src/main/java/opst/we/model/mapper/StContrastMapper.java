@@ -33,4 +33,5 @@ public interface StContrastMapper {
 
     StContrast getContrastByHeroid(Integer heroid);
 
+    int deleteByHeroid(Integer heroid);
 }

@@ -84,4 +84,23 @@ public class StzbCl extends BaseController {
         map.put("list",service.listContrastHero(1));
         return getView("herocontrast");
     }
+
+    @ResponseBody
+    @RequestMapping("/hero/contrastdel/{id}")
+    public BaseResult contrastdel(ModelMap map,@PathVariable Integer id) {
+        BaseResult result = new BaseResult();
+        try {
+            service.delContrastHero(id);
+            result.setSuccess(true);
+            result.setMessage("删除成功");
+            return result;
+        } catch (RuntimeException e) {
+            result.setMessage(e.getMessage());
+        }catch (Exception e) {
+            result.setMessage("删除失败");
+            e.printStackTrace();
+        }
+        result.setSuccess(false);
+        return result;
+    }
 }
