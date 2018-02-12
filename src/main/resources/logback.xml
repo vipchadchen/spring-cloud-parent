@@ -77,7 +77,7 @@
          	<appender-ref ref ="DB"/>-->
 	 </appender>
 
-	<root level="DEBUG">
+	<root level="INFO">
 		<appender-ref ref="ASYNC" />
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="ROLL_FILE" />
