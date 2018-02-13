@@ -10,6 +10,7 @@
     <div class="row">
         <div class="col-md-12 blog-main">
             <div class="blog-post">
+                <a class="btn btn-outline-primary " href="${ctx}/stzb/hero/list">武将列表</a>
                 <h2 class="blog-post-title">属性列表</h2>
                 <table class="table table-sm table-hover">
                     <thead>
@@ -17,7 +18,7 @@
                         <th>内容</th>
                         <#if list??>
                             <#list list as it>
-                                <th class="contrastdel" title="点击删除" data="${it.id}">${it.name}</th>
+                                <th >${it.name}<a href="javascript:;" class="contrastdel" title="点击删除" data="${it.id}">删除</a></th>
                             </#list>
                         </#if>
                     </tr>

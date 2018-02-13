@@ -38,7 +38,7 @@ public interface StHeroMapper {
 
     StHero getDefalutHero(@Param("column") String column);
 
-    List<StHero> listStHeroByPage(Page page, @Param("hero")StHero hero);
+    List<StHero> listStHeroByPage(Page page, @Param("hero")StHero hero,@Param("sort")String sort);
 
     List<StHero> listContrastHeroByUser(Integer userid);
 }

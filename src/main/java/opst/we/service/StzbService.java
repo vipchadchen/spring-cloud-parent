@@ -35,7 +35,7 @@ public interface StzbService {
      * @description:武将列表分页查询
      * @date: 2018/2/11 13:24
      */
-    Page listStHeroByPage(Page page, StHero hero);
+    Page listStHeroByPage(Page page, StHero hero,String sort);
     /**
      * @author: chgj
      * @param heroid 武将ID

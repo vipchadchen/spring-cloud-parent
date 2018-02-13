@@ -723,6 +723,9 @@
     <if test="hero.name != null" >
      AND NAME LIKE concat('%',#{hero.name},'%')
     </if>
+    <if test="sort != null" >
+      order by ${sort} desc
+    </if>
   </select>
 
   <select id="listContrastHeroByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

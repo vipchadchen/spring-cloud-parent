@@ -6,6 +6,7 @@ var stzb = {
         $(".detailcontrast").unbind('click').bind('click', this.detailcontrast);
         $("#btncont").unbind('click').bind('click', this.btncont);
         $(".contrastdel").unbind('click').bind('click', this.contrastdel);
+        $(".clicksort").unbind('click').bind('click', this.clicksort);
     },
     wjupdate:function() {
         $.ajax({
@@ -57,6 +58,10 @@ var stzb = {
                 alert('连接服务器失败，请重试！');
             }
         });
+    },
+    clicksort:function() {
+        var sort = $(this).attr("data");
+        window.location.href=PATH+"/stzb/hero/list?sort="+sort;
     },
 
 }

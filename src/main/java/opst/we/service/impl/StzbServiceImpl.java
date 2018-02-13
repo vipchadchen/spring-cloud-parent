@@ -70,8 +70,21 @@ public class StzbServiceImpl implements StzbService {
     }
 
     @Override
-    public Page listStHeroByPage(Page page, StHero hero) {
-        List<StHero> list = heroMapper.listStHeroByPage(page, hero);
+    public Page listStHeroByPage(Page page, StHero hero, String sort) {
+        if ("1".equals(sort)) {
+            sort = "attack";
+        } else if ("2".equals(sort)) {
+            sort = "ruse";
+        } else if ("3".equals(sort)) {
+            sort = "speed";
+        } else if ("4".equals(sort)) {
+            sort = "def";
+        } else if ("5".equals(sort)) {
+            sort = "siege";
+        } else {
+            sort = "id";
+        }
+        List<StHero> list = heroMapper.listStHeroByPage(page, hero, sort);
         return page.setRows(list);
     }
 

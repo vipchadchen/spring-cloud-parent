@@ -48,14 +48,14 @@ public class StzbCl extends BaseController {
     }
 
     @RequestMapping("/hero/list")
-    public String list(ModelMap map,StHero hero,String page,String rows) {
+    public String list(ModelMap map,StHero hero,String sort,String page,String rows) {
         if(StringUtils.isEmpty(page)){
             page = "1";
         }
         if(StringUtils.isEmpty(rows)){
-            rows = "20";
+            rows = "70";
         }
-        map.put("page",service.listStHeroByPage(Page.getPage(page,rows),hero));
+        map.put("page",service.listStHeroByPage(Page.getPage(page,rows),hero,sort));
         map.put("hero",hero);
         return getView("herolist");
     }

@@ -16,6 +16,7 @@
                     <label for="name">名称:</label>
                     <input type="text" class="form-control" id="name" value="${hero.name!''}" name="name" placeholder="输入名称">
                     <button type="submit" class="btn btn-primary ">查询</button>
+                    <button type="button" onclick="javascirpt:$('#name').val('')" class="btn btn-primary ">清空</button>
                         <button type="button" id="btncont" class="btn btn-success mx-auto">对比列表</button>
                 </form>
 
@@ -24,25 +25,24 @@
                     <thead>
                     <tr>
                         <th>武将</th>
-                        <th>星级</th>
-                        <th>攻击</th>
-                        <th>谋略</th>
-                        <th>速度</th>
-                        <th>防御</th>
-                        <th>攻城</th>
+                        <th class="clicksort" data="1">攻击</th>
+                        <th class="clicksort" data="2">谋略</th>
+                        <th class="clicksort" data="3">速度</th>
+                        <th class="clicksort" data="4">防御</th>
+                        <th class="clicksort" data="5">攻城</th>
                         <th>距离</th>
                     </tr>
                     </thead>
                     <tbody>
                     <#list page.rows as item>
                         <tr>
-                            <td data-toggle="popover" title="点击查看详细" delay="10" class="detailclick" data="${item.id}">${item.uniquename}</td>
-                            <td>${item.quality}</td>
-                            <td data-toggle="popover" title="点击加入对比" delay="10"  class="detailcontrast" data="${item.id}">${item.attack}</td>
-                            <td>${item.ruse}</td>
-                            <td>${item.speed}</td>
-                            <td>${item.def}</td>
-                            <td>${item.siege}</td>
+                            <td>${item.uniquename}<a delay="10" href="javascript:;" class="detailclick" data="${item.id}">${item.quality}星</a></td>
+                            <td>${item.attack}(${item.attgrow?string('#.##')})
+                                <a title="点击加入对比" href="javascript:;" class="detailcontrast" data="${item.id}">加</a></td>
+                            <td>${item.ruse}(${item.rusegrow?string('#.##')})</td>
+                            <td>${item.speed}(${item.speedgrow?string('#.##')})</td>
+                            <td>${item.def}(${item.defgrow?string('#.##')})</td>
+                            <td>${item.siege}(${item.siegegrow?string('#.##')})</td>
                             <td>${item.distance}</td>
                         </tr>
                     </#list>
