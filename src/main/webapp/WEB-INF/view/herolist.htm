@@ -30,20 +30,21 @@
                         <th class="clicksort" data="3">速度</th>
                         <th class="clicksort" data="4">防御</th>
                         <th class="clicksort" data="5">攻城</th>
-                        <th>距离</th>
                     </tr>
                     </thead>
                     <tbody>
                     <#list page.rows as item>
                         <tr>
-                            <td>${item.uniquename}<a delay="10" href="javascript:;" class="detailclick" data="${item.id}">${item.quality}星</a></td>
-                            <td>${item.attack}(${item.attgrow?string('#.##')})
-                                <a title="点击加入对比" href="javascript:;" class="detailcontrast" data="${item.id}">加</a></td>
-                            <td>${item.ruse}(${item.rusegrow?string('#.##')})</td>
-                            <td>${item.speed}(${item.speedgrow?string('#.##')})</td>
-                            <td>${item.def}(${item.defgrow?string('#.##')})</td>
-                            <td>${item.siege}(${item.siegegrow?string('#.##')})</td>
-                            <td>${item.distance}</td>
+                            <td>${item.uniquename}
+                                <p><a delay="10" href="javascript:;" class="detailclick" data="${item.id}">${item.quality}星</a>
+                                <a title="点击加入对比" href="javascript:;" class="detailcontrast" data="${item.id}">距离${item.distance}</a></p></td>
+                            <td>${item.attack}
+                                <p>(${item.attgrow?string('#.##')})
+                                    </p></td>
+                            <td>${item.ruse}<p>(${item.rusegrow?string('#.##')})</p></td>
+                            <td>${item.speed}<p>(${item.speedgrow?string('#.##')})</p></td>
+                            <td>${item.def}<p>(${item.defgrow?string('#.##')})</p></td>
+                            <td>${item.siege}<p>(${item.siegegrow?string('#.##')})</p></td>
                         </tr>
                     </#list>
                     </tbody>
