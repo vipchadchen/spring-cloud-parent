@@ -38,7 +38,7 @@ public class StzbServiceImpl implements StzbService {
             id = 100000;
         }
         logger.info("当前最大id url" + id);
-        for (int i = id; i < 100535; i++) {
+        for (int i = id; i < 100600; i++) {
             logger.info("数据拉取:" + i);
             String s = HttpsClientSSL.get("https://app.gamer.163.com/game-db/g10/hero/" + i, "");
             if (!StringUtils.isEmpty(s)) {
