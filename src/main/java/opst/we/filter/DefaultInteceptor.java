@@ -14,7 +14,7 @@ import java.util.Date;
 
 public class DefaultInteceptor extends HandlerInterceptorAdapter {
 
-	public String respath = "/we/res";
+	public String respath = "/res";
 
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
