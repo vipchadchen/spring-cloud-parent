@@ -10,7 +10,7 @@
     <name>opst-weclome</name>
 
     <properties>
-        <final.name>we</final.name>
+        <final.name>ROOT</final.name>
         <logback.version>1.1.7</logback.version>
         <logback-extensions.version>0.1.1</logback-extensions.version>
         <spring.version>4.1.6.RELEASE</spring.version>
